@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (if any)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://devtools-hub.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
