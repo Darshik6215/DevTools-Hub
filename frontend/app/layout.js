@@ -77,7 +77,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
+      <body className="antialiased">
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
@@ -105,8 +105,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-      </head>
-      <body className="antialiased">
+
         <Navbar />
         <main className="min-h-screen">
           {children}
