@@ -221,6 +221,7 @@ export default function ImageConverter() {
               </button>
             </div>
             <div className="border rounded-lg p-4 bg-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={convertedUrl}
                 alt="Converted"

@@ -52,7 +52,7 @@ export default function TermsAndConditions() {
 
         <h2 className="text-2xl font-bold mt-8 mb-4">5. Disclaimer of Warranties</h2>
         <p>
-          Our services are provided "as is" without warranties of any kind. We do not guarantee that:
+          Our services are provided &quot;as is&quot; without warranties of any kind. We do not guarantee that:
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>Services will be uninterrupted or error-free</li>

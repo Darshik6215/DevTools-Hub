@@ -217,12 +217,12 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-6">Why Use a Password Generator?</h2>
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-4">
-              In today's digital age, password security is more critical than ever. Cybersecurity experts recommend using unique, complex passwords 
+              In today&apos;s digital age, password security is more critical than ever. Cybersecurity experts recommend using unique, complex passwords 
               for every online account, but creating and remembering such passwords is nearly impossible without help. That's where our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">password generator</Link> comes in.
             </p>
             <p className="mb-4">
               Our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">secure password generator</Link> creates cryptographically strong passwords using advanced random number generation algorithms. Unlike 
-              simple password generators, we use Python's secrets module, which is specifically designed for generating cryptographically strong 
+              simple password generators, we use Python&apos;s secrets module, which is specifically designed for generating cryptographically strong 
               random numbers suitable for managing data such as passwords and security tokens.
             </p>
             <p className="mb-4">

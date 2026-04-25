@@ -132,7 +132,7 @@ export default function JsonFormatter() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="w-full h-96 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                placeholder='{"key": "value", "array": [1, 2, 3]}'
+                placeholder='&#123;&quot;key&quot;: &quot;value&quot;, &quot;array&quot;: [1, 2, 3]&#125;'
                 spellCheck={false}
               />
             </div>
