@@ -194,7 +194,7 @@ export default function Home() {
             </p>
             <p className="mb-4">
               Our <Link href="/json-formatter" className="text-blue-600 hover:underline font-semibold">free JSON formatter tool</Link> instantly transforms compressed or messy JSON into a clean, readable format with proper indentation and 
-              syntax highlighting. Whether you're debugging API responses, validating configuration files, or simply trying to understand complex 
+              syntax highlighting. Whether you&apos;re debugging API responses, validating configuration files, or simply trying to understand complex 
               JSON structures, our formatter makes the process effortless.
             </p>
             <p className="mb-4">
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p className="mb-4">
               In today&apos;s digital age, password security is more critical than ever. Cybersecurity experts recommend using unique, complex passwords 
-              for every online account, but creating and remembering such passwords is nearly impossible without help. That's where our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">password generator</Link> comes in.
+              for every online account, but creating and remembering such passwords is nearly impossible without help. That&apos;s where our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">password generator</Link> comes in.
             </p>
             <p className="mb-4">
               Our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">secure password generator</Link> creates cryptographically strong passwords using advanced random number generation algorithms. Unlike 

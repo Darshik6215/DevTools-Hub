@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import { generatePassword } from '@/lib/api'
+import { generatePasswordClient } from '@/lib/client-tools'
 import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default function PasswordGenerator() {
@@ -45,7 +46,8 @@ export default function PasswordGenerator() {
 
     setLoading(true)
     try {
-      const result = await generatePassword({
+      // Use client-side generation (no backend needed)
+      const result = generatePasswordClient({
         length,
         include_uppercase: includeUppercase,
         include_lowercase: includeLowercase,

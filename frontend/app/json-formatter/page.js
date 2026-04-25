@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ToolLayout from '@/components/ToolLayout'
 import { formatJSON } from '@/lib/api'
+import { formatJSONClient } from '@/lib/client-tools'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import AdComponent from '@/components/AdComponent'
 
@@ -24,7 +25,8 @@ export default function JsonFormatter() {
     setError('')
     
     try {
-      const result = await formatJSON(input)
+      // Use client-side formatting (no backend needed)
+      const result = formatJSONClient(input)
       setOutput(result.formatted)
     } catch (err) {
       setError(err.message || 'Failed to format JSON')
@@ -132,7 +134,7 @@ export default function JsonFormatter() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="w-full h-96 p-4 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                placeholder='&#123;&quot;key&quot;: &quot;value&quot;, &quot;array&quot;: [1, 2, 3]&#125;'
+                placeholder='{"key": "value", "array": [1, 2, 3]}'
                 spellCheck={false}
               />
             </div>
@@ -171,8 +173,8 @@ export default function JsonFormatter() {
             <h3 className="font-semibold text-blue-900 mb-2">💡 Quick Tips:</h3>
             <ul className="text-sm text-blue-800 space-y-1">
               <li>• Paste your JSON data in the input field</li>
-              <li>• Click "Format JSON" to validate and beautify</li>
-              <li>• Use "Load Sample" to see an example</li>
+              <li>• Click &quot;Format JSON&quot; to validate and beautify</li>
+              <li>• Use &quot;Load Sample&quot; to see an example</li>
               <li>• Copy the formatted output with one click</li>
             </ul>
           </div>
@@ -193,7 +195,7 @@ export default function JsonFormatter() {
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Our free JSON formatter tool instantly transforms compressed, minified, or messy JSON into a clean, readable format with proper 
-            indentation, syntax highlighting, and structure. Whether you're debugging API responses, validating configuration files, working with 
+            indentation, syntax highlighting, and structure. Whether you&apos;re debugging API responses, validating configuration files, working with 
             REST APIs, or simply trying to understand complex JSON structures, our formatter makes the process effortless and error-free.
           </p>
 
@@ -204,21 +206,21 @@ export default function JsonFormatter() {
           <ol className="list-decimal pl-6 space-y-3 text-gray-700">
             <li>
               <strong>Paste Your JSON:</strong> Copy your JSON data from any source (API response, file, database) and paste it into the 
-              "Input JSON" text area on the left side.
+              &quot;Input JSON&quot; text area on the left side.
             </li>
             <li>
-              <strong>Click Format JSON:</strong> Press the blue "Format JSON" button. Our tool will instantly validate and format your JSON data.
+              <strong>Click Format JSON:</strong> Press the blue &quot;Format JSON&quot; button. Our tool will instantly validate and format your JSON data.
             </li>
             <li>
-              <strong>View Results:</strong> The formatted, beautified JSON will appear in the "Formatted Output" area on the right side with 
+              <strong>View Results:</strong> The formatted, beautified JSON will appear in the &quot;Formatted Output&quot; area on the right side with 
               proper indentation and structure.
             </li>
             <li>
-              <strong>Copy Output:</strong> Click the "Copy Output" button to copy the formatted JSON to your clipboard for use in your projects.
+              <strong>Copy Output:</strong> Click the &quot;Copy Output&quot; button to copy the formatted JSON to your clipboard for use in your projects.
             </li>
             <li>
               <strong>Error Detection:</strong> If your JSON contains syntax errors, our tool will display a clear error message explaining 
-              what's wrong and where the error is located.
+              what&apos;s wrong and where the error is located.
             </li>
           </ol>
 
