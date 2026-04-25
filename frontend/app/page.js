@@ -13,12 +13,12 @@ export const metadata = {
   openGraph: {
     title: 'Free Online Developer Tools - JSON, Password, Image Converter',
     description: 'Professional-grade developer tools: JSON formatter, password generator, and image converter. 100% free, fast, and secure.',
-    url: 'https://devtools-hub.com',
+    url: 'https://dev-tools-hub-three.vercel.app',
     siteName: 'DevTools Hub',
     type: 'website',
     images: [
       {
-        url: 'https://devtools-hub.com/og-image.png',
+        url: 'https://dev-tools-hub-three.vercel.app/og-image.png',
         width: 1200,
         height: 630,
         alt: 'DevTools Hub - Free Online Developer Tools',
@@ -29,10 +29,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Free Online Developer Tools - DevTools Hub',
     description: 'Format JSON, generate passwords, convert images - all free!',
-    images: ['https://devtools-hub.com/twitter-image.png'],
+    images: ['https://dev-tools-hub-three.vercel.app/twitter-image.png'],
   },
   alternates: {
-    canonical: 'https://devtools-hub.com',
+    canonical: 'https://dev-tools-hub-three.vercel.app',
   },
 }
 

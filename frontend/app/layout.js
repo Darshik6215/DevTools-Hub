@@ -5,7 +5,7 @@ import '../styles/globals.css'
 
 // Enhanced SEO metadata configuration
 export const metadata = {
-  metadataBase: new URL('https://devtools-hub.com'),
+  metadataBase: new URL('https://dev-tools-hub-three.vercel.app'),
   title: {
     default: 'DevTools Hub - Free Online Developer Tools | JSON, Password, Image Converter',
     template: '%s | DevTools Hub'
@@ -25,7 +25,7 @@ export const metadata = {
     'secure password',
     'convert images'
   ],
-  authors: [{ name: 'DevTools Hub', url: 'https://devtools-hub.com' }],
+  authors: [{ name: 'DevTools Hub', url: 'https://dev-tools-hub-three.vercel.app' }],
   creator: 'DevTools Hub',
   publisher: 'DevTools Hub',
   formatDetection: {
@@ -36,7 +36,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://devtools-hub.com',
+    url: 'https://dev-tools-hub-three.vercel.app',
     title: 'DevTools Hub - Free Online Developer Tools',
     description: 'Professional developer tools: JSON formatter, password generator, image converter. 100% free.',
     siteName: 'DevTools Hub',
