@@ -69,9 +69,6 @@ export const metadata = {
   },
   verification: {
     google: 'WaCrSt2TAnTVZHOtNBqJlj8pZGE-xQvM5rYzKwXuFcVbNmAsD', // Google Search Console verification
-    other: {
-      'google-adsense-account': 'ca-pub-8753660169522921', // AdSense verification
-    },
     // yandex: 'your-yandex-verification-code',
     // bing: 'your-bing-verification-code',
   },
@@ -80,6 +77,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Google AdSense Verification Meta Tag */}
+        <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
+        
+        {/* Google AdSense Script */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8753660169522921"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className="antialiased">
         {/* Google Analytics */}
         <Script
@@ -97,14 +106,6 @@ export default function RootLayout({ children }) {
               gtag('config', 'G-N7G5ZZNNRM');
             `,
           }}
-        />
-
-        {/* Google AdSense */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8753660169522921"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
 
         <Navbar />
