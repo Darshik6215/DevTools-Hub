@@ -29,7 +29,7 @@ export const trackButtonClick = (buttonName, location) => {
 // Track page views
 export const trackPageView = (url) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-XXXXXXXXXX', {
+    window.gtag('config', 'G-N7G5ZZNNRM', {
       page_path: url,
     })
   }
