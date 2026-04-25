@@ -68,7 +68,7 @@ export const metadata = {
     },
   },
   verification: {
-    // google: 'YOUR_SEARCH_CONSOLE_CODE_HERE', // Add correct Search Console verification code
+    google: 'WaCrSt2TAnTVZHOh7CvwiAkndQsOjXQkwnHuqUJ8sJM', // Google Search Console verification
     // yandex: 'your-yandex-verification-code',
     // bing: 'your-bing-verification-code',
   },
