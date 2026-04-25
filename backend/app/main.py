@@ -41,7 +41,9 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://devtools-hub.com",
-        "https://www.devtools-hub.com"
+        "https://www.devtools-hub.com",
+        "https://dev-tools-hub-three.vercel.app",
+        "https://devtools-hub-62u1.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -72,11 +74,13 @@ app.include_router(
 )
 
 @app.get("/", tags=["Root"])
+@app.head("/", tags=["Root"])
 async def root():
     """
     Root endpoint - API information
     
     Returns basic API information and available endpoints.
+    Supports both GET and HEAD methods for health checks.
     """
     return {
         "message": "DevTools Hub API",
@@ -91,11 +95,13 @@ async def root():
     }
 
 @app.get("/health", tags=["Health"])
+@app.head("/health", tags=["Health"])
 async def health_check():
     """
     Health check endpoint
     
     Returns the health status of the API.
+    Supports both GET and HEAD methods.
     """
     return {
         "status": "healthy",
