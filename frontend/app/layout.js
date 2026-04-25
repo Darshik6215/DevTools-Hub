@@ -68,7 +68,10 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'WaCrSt2TAnTVZHOtNBqJlj8pZGE-xQvM5rYzKwXuFcVbNmAsD', // Replace with your actual code from Google Search Console
+    google: 'WaCrSt2TAnTVZHOtNBqJlj8pZGE-xQvM5rYzKwXuFcVbNmAsD', // Google Search Console verification
+    other: {
+      'google-adsense-account': 'ca-pub-8753660169522921', // AdSense verification
+    },
     // yandex: 'your-yandex-verification-code',
     // bing: 'your-bing-verification-code',
   },
