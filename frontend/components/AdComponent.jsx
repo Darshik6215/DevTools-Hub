@@ -82,7 +82,7 @@ export default function AdComponent({ size = 'banner', className = '' }) {
           ref={adRef}
           className="adsbygoogle"
           style={{ display: 'block' }}
-          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" // Replace with your publisher ID
+          data-ad-client="ca-pub-8753660169522921"
           data-ad-slot={config.slot}
           data-ad-format={config.format}
           data-full-width-responsive="true"
