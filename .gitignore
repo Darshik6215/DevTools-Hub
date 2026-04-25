@@ -30,7 +30,10 @@ dist/
 .env.development.local
 .env.test.local
 .env.production.local
-*.env
+
+# But keep example env files
+!.env.example
+!backend/.env
 
 # IDE
 .vscode/
@@ -114,7 +117,8 @@ build/
 *.backup
 *~
 
-*.md
+# Documentation (keep important docs)
+# *.md
 
 # Lock files (optional - uncomment if you want to ignore)
 # package-lock.json
