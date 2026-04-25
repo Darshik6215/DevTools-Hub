@@ -80,7 +80,8 @@ export default function RootLayout({ children }) {
       <head>
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
-        
+      </head>
+      <body className="antialiased">
         {/* Google AdSense Script */}
         <Script
           async
@@ -88,8 +89,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-      </head>
-      <body className="antialiased">
+
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
