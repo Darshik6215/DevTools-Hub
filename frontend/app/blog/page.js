@@ -1,144 +1,177 @@
-import Link from 'next/link'
-import AdComponent from '@/components/AdComponent'
+import BlogClient from './BlogClient'
 
 // SEO metadata for blog page
 export const metadata = {
-  title: 'Blog - Developer Tips & Tutorials',
+  title: 'Blog - Developer Tips & Articles | DevTools Hub',
   description: 'Read our latest articles about JSON formatting, password security, image optimization, and web development best practices.',
   keywords: ['developer blog', 'web development', 'JSON tutorial', 'password security', 'image optimization'],
 }
 
+const blogPosts = [
+  {
+    title: 'API Testing Complete Guide 2024 - Test REST APIs Like a Pro',
+    slug: 'api-testing-complete-guide',
+    excerpt: 'Learn API testing from basics to advanced. Complete guide covering REST APIs, HTTP methods, testing tools, and best practices for developers.',
+    date: '2024-01-20',
+    category: 'API & Testing',
+    readTime: '12 min read',
+    image: '🧪'
+  },
+  {
+    title: 'JWT Authentication Guide - How JSON Web Tokens Work',
+    slug: 'jwt-authentication-guide',
+    excerpt: 'Understand JWT authentication, its structure (Header, Payload, Signature), and how to use tokens securely in your web applications.',
+    date: '2024-03-15',
+    category: 'Security',
+    readTime: '12 min read',
+    image: '🔑'
+  },
+  {
+    title: 'Complete Guide to Hash Functions - MD5, SHA-1, SHA-256',
+    slug: 'hash-functions-guide',
+    excerpt: 'Understand cryptographic hash functions. Learn about MD5, SHA-1, SHA-256, their differences, and why hashing is NOT encryption.',
+    date: '2024-04-10',
+    category: 'Security',
+    readTime: '10 min read',
+    image: '🔒'
+  },
+  {
+    title: 'Regex Tutorial for Beginners - Master Regular Expressions',
+    slug: 'regex-tutorial',
+    excerpt: 'Master Regular Expressions (Regex) with our beginner-friendly tutorial. Learn syntax, patterns, and how to test your regex patterns online.',
+    date: '2024-02-10',
+    category: 'Code Tools',
+    readTime: '15 min read',
+    image: '🔤'
+  },
+  {
+    title: 'Unix Timestamp Guide - Everything You Need to Know',
+    slug: 'timestamp-guide',
+    excerpt: 'Master Unix timestamps. Learn what they are, how to convert them to human-readable dates, and how to handle timezones in development.',
+    date: '2024-04-15',
+    category: 'Development',
+    readTime: '8 min read',
+    image: '📅'
+  },
+  {
+    title: 'URL Encoding & Decoding Guide - Percent Encoding Explained',
+    slug: 'url-encoding-guide',
+    excerpt: 'Learn why URL encoding is necessary. Master special characters, query parameters, and how to encode/decode URLs safely.',
+    date: '2024-04-25',
+    category: 'Development',
+    readTime: '7 min read',
+    image: '🌐'
+  },
+  {
+    title: 'Base64 Encoding Guide - How it Works and When to Use it',
+    slug: 'base64-encoding-guide',
+    excerpt: 'Learn everything about Base64 encoding/decoding. Understand how it converts binary data to text and its common use cases in web development.',
+    date: '2024-03-20',
+    category: 'Data',
+    readTime: '8 min read',
+    image: '📦'
+  },
+  {
+    title: 'Complete Guide to Image Optimization for Web',
+    slug: 'image-optimization-guide',
+    excerpt: 'Learn how to optimize images for the web to improve site speed and SEO. Complete guide covering compression, formats, and best practices.',
+    date: '2024-03-05',
+    category: 'Performance',
+    readTime: '10 min read',
+    image: '🖼️'
+  },
+  {
+    title: 'Complete Guide to Image Resizing - Scale Your Graphics',
+    slug: 'image-resizing-guide',
+    excerpt: 'Learn how to resize images properly for the web. Understand aspect ratio, interpolation, and how to scale images without losing clarity.',
+    date: '2024-04-08',
+    category: 'Performance',
+    readTime: '8 min read',
+    image: '📏'
+  },
+  {
+    title: 'Web Image Formats Guide - PNG, JPG, WebP, SVG, GIF',
+    slug: 'image-formats-guide',
+    excerpt: 'Understand the differences between common web image formats. Learn when to use PNG vs JPG vs WebP for optimal performance.',
+    date: '2024-04-05',
+    category: 'Design',
+    readTime: '10 min read',
+    image: '🖼️'
+  },
+  {
+    title: 'Color Theory for Web Developers - Beyond the Hex Code',
+    slug: 'color-theory-guide',
+    excerpt: 'Master color theory, HEX, RGB, and HSL formats. Learn how to create beautiful color palettes and understand accessibility (WCAG).',
+    date: '2024-04-20',
+    category: 'Design',
+    readTime: '12 min read',
+    image: '🎨'
+  },
+  {
+    title: 'Complete Guide to QR Codes - How They Work & Best Practices',
+    slug: 'qr-code-guide',
+    excerpt: 'Learn everything about QR codes. Discover how they store data, best practices for design, and how to generate high-quality QR codes.',
+    date: '2024-04-22',
+    category: 'Development',
+    readTime: '9 min read',
+    image: '📱'
+  },
+  {
+    title: 'Complete Guide to Text Comparison - Finding Diffs Effectively',
+    slug: 'text-comparison-guide',
+    excerpt: 'Learn how text comparison works. Master diff algorithms, line-by-line comparison, and how to use diff tools to spot changes.',
+    date: '2024-04-28',
+    category: 'Code Tools',
+    readTime: '8 min read',
+    image: '🔍'
+  },
+  {
+    title: 'JSON to CSV Guide - Modern Data Transformation',
+    slug: 'json-csv-guide',
+    excerpt: 'Learn how to convert JSON data to CSV and vice-versa. Understand the differences between nested JSON and flat CSV formats.',
+    date: '2024-05-01',
+    category: 'Data',
+    readTime: '10 min read',
+    image: '📊'
+  },
+  {
+    title: 'Complete Guide to Code Formatting - Why Clean Code Matters',
+    slug: 'code-formatting-guide',
+    excerpt: 'Learn why clean code matters. A complete guide to code formatting, indentation, naming conventions, and how to use automated formatters.',
+    date: '2024-04-02',
+    category: 'Development',
+    readTime: '10 min read',
+    image: '💻'
+  },
+  {
+    title: 'Complete Guide to JSON Formatter - Format & Validate JSON Online',
+    slug: 'json-formatter-guide',
+    excerpt: 'Learn everything about JSON formatting, validation, and best practices. Complete guide with examples, tips, and common errors.',
+    date: '2024-01-15',
+    category: 'JSON & Data',
+    readTime: '8 min read',
+    image: '📋'
+  },
+  {
+    title: 'UUID Generator Complete Guide - When and How to Use UUIDs',
+    slug: 'uuid-generator-guide',
+    excerpt: 'Master UUID generation and learn when to use UUIDs vs other identifiers. Complete guide covering UUID versions, best practices, and real-world use cases.',
+    date: '2024-01-12',
+    category: 'Developer Tools',
+    readTime: '10 min read',
+    image: '🔑'
+  },
+  {
+    title: 'Best Password Security Practices in 2024',
+    slug: 'password-security-practices',
+    excerpt: 'Protect your online accounts with strong passwords. Learn the latest password security best practices and how to use generators effectively.',
+    date: '2024-01-10',
+    category: 'Security',
+    readTime: '7 min read',
+    image: '🔐'
+  }
+]
+
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      title: 'How to Fix Common JSON Errors',
-      slug: 'how-to-fix-json-errors',
-      excerpt: 'Learn how to identify and fix the most common JSON syntax errors quickly. This comprehensive guide covers missing commas, trailing commas, incorrect quotes, and more.',
-      date: '2024-01-15',
-      category: 'JSON',
-      readTime: '5 min read',
-      image: '📋'
-    },
-    {
-      title: 'Best Password Security Practices in 2024',
-      slug: 'password-security-practices',
-      excerpt: 'Discover the latest password security best practices to protect your accounts. Learn about password managers, two-factor authentication, and creating strong passwords.',
-      date: '2024-01-10',
-      category: 'Security',
-      readTime: '7 min read',
-      image: '🔐'
-    },
-    {
-      title: 'Convert Images Without Losing Quality',
-      slug: 'convert-images-without-losing-quality',
-      excerpt: 'Complete guide to converting images while maintaining optimal quality. Understand different image formats, compression techniques, and when to use each format.',
-      date: '2024-01-05',
-      category: 'Images',
-      readTime: '6 min read',
-      image: '🖼️'
-    }
-  ]
-
-  return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Developer Blog
-            </h1>
-            <p className="text-xl text-gray-600">
-              Tips, tutorials, and best practices for web developers
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ad Placement */}
-      <div className="container mx-auto px-4 py-6">
-        <AdComponent size="banner" />
-      </div>
-
-      {/* Blog Posts Grid */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-200 overflow-hidden"
-              >
-                <div className="p-6">
-                  <div className="text-6xl mb-4 text-center">{post.image}</div>
-                  
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                      {post.category}
-                    </span>
-                    <span className="text-sm text-gray-500">{post.readTime}</span>
-                  </div>
-
-                  <h2 className="text-2xl font-bold mb-3 hover:text-blue-600 transition-colors">
-                    <Link href={`/blog/${post.slug}`}>
-                      {post.title}
-                    </Link>
-                  </h2>
-
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.date}</span>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-blue-600 font-semibold hover:underline"
-                    >
-                      Read More →
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Try Our Free Tools</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Format JSON, generate passwords, and convert images instantly
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/json-formatter"
-              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              JSON Formatter
-            </Link>
-            <Link
-              href="/password-generator"
-              className="px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
-            >
-              Password Generator
-            </Link>
-            <Link
-              href="/image-converter"
-              className="px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
-            >
-              Image Converter
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Ad Placement */}
-      <div className="container mx-auto px-4 py-6">
-        <AdComponent size="banner" />
-      </div>
-    </div>
-  )
+  return <BlogClient posts={blogPosts} />
 }

@@ -83,9 +83,9 @@ export default function PasswordGenerator() {
    * Get strength color
    */
   const getStrengthColor = () => {
-    if (strength === 'Weak') return 'text-red-600 bg-red-50'
-    if (strength === 'Medium') return 'text-yellow-600 bg-yellow-50'
-    return 'text-green-600 bg-green-50'
+    if (strength === 'Weak') return 'text-red-500 bg-red-500/10'
+    if (strength === 'Medium') return 'text-yellow-500 bg-yellow-500/10'
+    return 'text-green-500 bg-green-500/10'
   }
 
   return (
@@ -95,12 +95,12 @@ export default function PasswordGenerator() {
     >
       <div className="max-w-2xl mx-auto">
         {/* Password Length Slider */}
-        <div className="mb-8">
+        <div className="mb-8 reveal">
           <div className="flex justify-between items-center mb-2">
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium text-text-primary">
               Password Length
             </label>
-            <span className="text-2xl font-bold text-blue-600">{length}</span>
+            <span className="text-2xl font-bold text-primary">{length}</span>
           </div>
           <input
             type="range"
@@ -108,26 +108,26 @@ export default function PasswordGenerator() {
             max="64"
             value={length}
             onChange={(e) => setLength(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+            className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer accent-primary"
           />
-          <div className="flex justify-between text-xs text-gray-500 mt-1">
+          <div className="flex justify-between text-xs text-text-secondary mt-1">
             <span>8</span>
             <span>64</span>
           </div>
         </div>
 
         {/* Character Options */}
-        <div className="space-y-4 mb-8 p-6 bg-gray-50 rounded-lg">
-          <h3 className="font-semibold text-gray-700 mb-3">Character Options</h3>
+        <div className="space-y-4 mb-8 p-6 bg-bg-secondary rounded-xl border border-border reveal reveal-delay-1">
+          <h3 className="font-semibold text-text-primary mb-3">Character Options</h3>
           
           <label className="flex items-center gap-3 cursor-pointer group">
             <input
               type="checkbox"
               checked={includeUppercase}
               onChange={(e) => setIncludeUppercase(e.target.checked)}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary bg-bg-primary border-border"
             />
-            <span className="group-hover:text-blue-600 transition-colors">
+            <span className="text-text-secondary group-hover:text-primary transition-colors">
               Include Uppercase Letters (A-Z)
             </span>
           </label>
@@ -137,9 +137,9 @@ export default function PasswordGenerator() {
               type="checkbox"
               checked={includeLowercase}
               onChange={(e) => setIncludeLowercase(e.target.checked)}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary bg-bg-primary border-border"
             />
-            <span className="group-hover:text-blue-600 transition-colors">
+            <span className="text-text-secondary group-hover:text-primary transition-colors">
               Include Lowercase Letters (a-z)
             </span>
           </label>
@@ -149,9 +149,9 @@ export default function PasswordGenerator() {
               type="checkbox"
               checked={includeNumbers}
               onChange={(e) => setIncludeNumbers(e.target.checked)}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary bg-bg-primary border-border"
             />
-            <span className="group-hover:text-blue-600 transition-colors">
+            <span className="text-text-secondary group-hover:text-primary transition-colors">
               Include Numbers (0-9)
             </span>
           </label>
@@ -161,19 +161,19 @@ export default function PasswordGenerator() {
               type="checkbox"
               checked={includeSymbols}
               onChange={(e) => setIncludeSymbols(e.target.checked)}
-              className="w-5 h-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+              className="w-5 h-5 text-primary rounded focus:ring-2 focus:ring-primary bg-bg-primary border-border"
             />
-            <span className="group-hover:text-blue-600 transition-colors">
+            <span className="text-text-secondary group-hover:text-primary transition-colors">
               Include Symbols (!@#$%^&*)
             </span>
           </label>
         </div>
 
         {/* Password Strength Indicator */}
-        <div className="mb-6">
+        <div className="mb-6 reveal reveal-delay-2">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-gray-700">Password Strength:</span>
-            <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getStrengthColor()}`}>
+            <span className="text-sm font-medium text-text-primary">Password Strength:</span>
+            <span className={`px-3 py-1 rounded-full text-sm font-bold ${getStrengthColor()}`}>
               {strength}
             </span>
           </div>
@@ -181,17 +181,17 @@ export default function PasswordGenerator() {
 
         {/* Generated Password Display */}
         {password && (
-          <div className="mb-6 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border-2 border-blue-200">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="mb-6 p-6 bg-bg-secondary rounded-xl border-2 border-primary/20 reveal">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Generated Password
             </label>
-            <div className="flex items-center gap-3">
-              <code className="flex-1 text-xl font-mono break-all bg-white p-4 rounded border">
+            <div className="flex flex-col md:flex-row items-center gap-3">
+              <code className="flex-1 text-xl font-mono break-all bg-bg-primary p-4 rounded-lg border border-border text-text-primary w-full text-center md:text-left">
                 {password}
               </code>
               <button
                 onClick={copyToClipboard}
-                className="px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+                className="w-full md:w-auto px-8 py-4 bg-accent text-white rounded-lg hover:opacity-90 transition-all font-bold shadow-lg transform active:scale-95"
               >
                 {copied ? '✓ Copied!' : 'Copy'}
               </button>
@@ -203,21 +203,23 @@ export default function PasswordGenerator() {
         <button
           onClick={handleGenerate}
           disabled={loading}
-          className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-3"
+          className="w-full px-6 py-4 bg-gradient-to-r from-primary to-accent text-white text-lg font-bold rounded-xl hover:opacity-90 disabled:from-border disabled:to-border disabled:cursor-not-allowed transition-all flex items-center justify-center gap-3 shadow-xl transform active:scale-[0.98] reveal reveal-delay-3"
         >
           {loading && <LoadingSpinner size="small" />}
           {loading ? 'Generating...' : '🔐 Generate Secure Password'}
         </button>
 
         {/* Security Tips */}
-        <div className="mt-8 p-6 bg-yellow-50 rounded-lg border border-yellow-200">
-          <h3 className="font-semibold text-yellow-900 mb-3">🔒 Security Tips:</h3>
-          <ul className="text-sm text-yellow-800 space-y-2">
-            <li>• Use at least 12 characters for better security</li>
-            <li>• Include a mix of uppercase, lowercase, numbers, and symbols</li>
-            <li>• Never reuse passwords across different accounts</li>
-            <li>• Consider using a password manager</li>
-            <li>• Change passwords regularly</li>
+        <div className="mt-8 p-6 bg-bg-secondary rounded-xl border border-border reveal">
+          <h3 className="font-bold text-text-primary mb-3 flex items-center gap-2">
+            <span className="text-xl">🔒</span> Security Tips:
+          </h3>
+          <ul className="text-sm text-text-secondary space-y-3">
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Use at least 12 characters for better security</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Include a mix of uppercase, lowercase, numbers, and symbols</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Never reuse passwords across different accounts</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Consider using a password manager</li>
+            <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-primary"></span> Change passwords regularly</li>
           </ul>
         </div>
       </div>

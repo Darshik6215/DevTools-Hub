@@ -282,66 +282,73 @@ export default function BlogPost({ params }) {
     <div className="min-h-screen">
       {/* Article Header */}
       <article className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="mb-8">
+        <div className="mb-8 reveal">
           <div className="flex items-center gap-4 mb-4">
-            <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full">
+            <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-bold rounded-full">
               {post.category}
             </span>
-            <span className="text-gray-500">{post.readTime}</span>
+            <span className="text-text-secondary font-medium">{post.readTime}</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-text-primary">
             {post.title}
           </h1>
           
-          <div className="flex items-center gap-4 text-gray-600">
-            <span>By {post.author}</span>
+          <div className="flex items-center gap-4 text-text-secondary font-medium">
+            <span className="flex items-center gap-1">
+              <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs">👤</span>
+              {post.author}
+            </span>
             <span>•</span>
             <time dateTime={post.date}>{post.date}</time>
           </div>
         </div>
 
         {/* Ad Placement */}
-        <div className="my-8">
+        <div className="my-8 reveal reveal-delay-1">
           <AdComponent size="banner" />
         </div>
 
         {/* Article Content */}
         <div 
-          className="prose prose-lg max-w-none"
+          className="prose prose-lg max-w-none text-text-primary prose-headings:text-text-primary prose-a:text-primary prose-strong:text-text-primary reveal reveal-delay-2"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
         {/* Ad Placement - Mid Content */}
-        <div className="my-12">
+        <div className="my-12 reveal">
           <AdComponent size="rectangle" />
         </div>
 
         {/* Related Tools */}
         {post.relatedTools && post.relatedTools.length > 0 && (
-          <div className="mt-12 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border-2 border-blue-200">
-            <h3 className="text-2xl font-bold mb-6 text-center">🛠️ Try Related Tools</h3>
-            <div className="grid md:grid-cols-2 gap-4">
+          <div className="mt-12 p-8 bg-bg-secondary rounded-2xl border border-border reveal">
+            <h3 className="text-2xl font-bold mb-8 text-center text-text-primary flex items-center justify-center gap-3">
+              <span className="w-12 h-1 bg-primary rounded-full"></span>
+              🛠️ Try Related Tools
+              <span className="w-12 h-1 bg-primary rounded-full"></span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
               {post.relatedTools.map((tool) => (
                 <Link
                   key={tool}
                   href={`/${tool}`}
-                  className="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-400 hover:-translate-y-1"
+                  className="block p-6 bg-card-bg rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary group hover:-translate-y-2"
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-4xl transform group-hover:scale-110 transition-transform duration-500">
                       {tool === 'json-formatter' ? '📋' : tool === 'password-generator' ? '🔐' : '🖼️'}
                     </span>
-                    <h4 className="font-bold text-lg text-blue-600">
+                    <h4 className="font-bold text-xl text-text-primary group-hover:text-primary transition-colors">
                       {tool.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                     </h4>
                   </div>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-text-secondary leading-relaxed mb-4">
                     {tool === 'json-formatter' ? 'Format and validate JSON data instantly' : 
                      tool === 'password-generator' ? 'Generate secure passwords with custom options' : 
                      'Convert images between multiple formats'}
                   </p>
-                  <span className="inline-block mt-3 text-blue-600 font-semibold text-sm">
+                  <span className="inline-flex items-center gap-1 text-primary font-bold hover:gap-2 transition-all">
                     Use Tool →
                   </span>
                 </Link>
@@ -351,9 +358,9 @@ export default function BlogPost({ params }) {
         )}
 
         {/* Read Next Articles */}
-        <div className="mt-12 p-8 bg-gray-50 rounded-xl border border-gray-200">
-          <h3 className="text-2xl font-bold mb-6">📚 Read Next</h3>
-          <div className="space-y-4">
+        <div className="mt-16 p-8 bg-bg-secondary rounded-2xl border border-border reveal">
+          <h3 className="text-2xl font-bold mb-8 text-text-primary">📚 Read Next</h3>
+          <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(blogPosts)
               .filter(([slug]) => slug !== params.slug)
               .slice(0, 2)
@@ -361,22 +368,20 @@ export default function BlogPost({ params }) {
                 <Link
                   key={slug}
                   href={`/blog/${slug}`}
-                  className="block p-4 bg-white rounded-lg hover:shadow-md transition-shadow border border-gray-200"
+                  className="block p-5 bg-card-bg rounded-xl hover:shadow-xl transition-all border border-border hover:border-primary group"
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="text-3xl">{relatedPost.category === 'JSON' ? '📋' : relatedPost.category === 'Security' ? '🔐' : '🖼️'}</span>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl">{relatedPost.category === 'JSON' ? '📋' : relatedPost.category === 'Security' ? '🔐' : '🖼️'}</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-primary">{relatedPost.category}</span>
+                    </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-lg mb-1 hover:text-blue-600 transition-colors">
+                      <h4 className="font-bold text-lg mb-2 text-text-primary group-hover:text-primary transition-colors line-clamp-2">
                         {relatedPost.title}
                       </h4>
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="text-sm text-text-secondary mb-4 line-clamp-2">
                         {relatedPost.content.substring(0, 120).replace(/<[^>]*>/g, '')}...
                       </p>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
-                        <span>{relatedPost.date}</span>
-                        <span>•</span>
-                        <span>{relatedPost.readTime}</span>
-                      </div>
                     </div>
                   </div>
                 </Link>
@@ -385,26 +390,26 @@ export default function BlogPost({ params }) {
         </div>
 
         {/* Share Section */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <h3 className="text-xl font-semibold mb-4">Share this article</h3>
-          <div className="flex gap-4">
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <div className="mt-16 pt-8 border-t border-border reveal">
+          <h3 className="text-xl font-bold mb-6 text-text-primary">Share this article</h3>
+          <div className="flex flex-wrap gap-4">
+            <button className="px-6 py-3 bg-[#1DA1F2] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-md active:scale-95">
               Twitter
             </button>
-            <button className="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-900">
+            <button className="px-6 py-3 bg-[#4267B2] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-md active:scale-95">
               Facebook
             </button>
-            <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+            <button className="px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-md active:scale-95">
               WhatsApp
             </button>
           </div>
         </div>
 
         {/* Back to Blog */}
-        <div className="mt-12">
+        <div className="mt-16">
           <Link
             href="/blog"
-            className="inline-flex items-center text-blue-600 hover:underline font-semibold"
+            className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-bold text-lg"
           >
             ← Back to Blog
           </Link>
@@ -412,7 +417,7 @@ export default function BlogPost({ params }) {
       </article>
 
       {/* Ad Placement - Before Footer */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 reveal">
         <AdComponent size="banner" />
       </div>
     </div>

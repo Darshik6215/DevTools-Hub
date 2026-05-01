@@ -7,7 +7,7 @@ import '../styles/globals.css'
 export const metadata = {
   metadataBase: new URL('https://dev-tools-hub-three.vercel.app'),
   title: {
-    default: 'DevTools Hub - Free Online Developer Tools | JSON, Password, Image Converter',
+    default: 'DevTools Hub | 18+ Free Online Developer Tools & SEO Guides',
     template: '%s | DevTools Hub'
   },
   description: 'Free online developer tools: JSON formatter & validator, secure password generator, image converter (PNG/JPG/WebP). Fast, secure, no signup required.',
@@ -37,7 +37,7 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://dev-tools-hub-three.vercel.app',
-    title: 'DevTools Hub - Free Online Developer Tools',
+    title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',
     description: 'Professional developer tools: JSON formatter, password generator, image converter. 100% free.',
     siteName: 'DevTools Hub',
     images: [
@@ -76,10 +76,23 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-theme="dark">
       <head>
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
+        {/* Force Dark Theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  localStorage.setItem('theme', 'dark');
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         {/* Google AdSense Script */}

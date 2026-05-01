@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -28,19 +29,21 @@ export default function ContactPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <p className="text-xl text-gray-600">
+      <div className="text-center mb-12 reveal">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Contact Us
+        </h1>
+        <p className="text-xl text-text-secondary">
           Have questions or feedback? We&apos;d love to hear from you!
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <div>
+        <div className="reveal reveal-delay-1">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-medium mb-2 text-text-primary">
                 Name *
               </label>
               <input
@@ -50,13 +53,13 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 bg-bg-secondary border border-border text-text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-medium mb-2 text-text-primary">
                 Email *
               </label>
               <input
@@ -66,13 +69,13 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 bg-bg-secondary border border-border text-text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 placeholder="your@email.com"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">
+              <label htmlFor="subject" className="block text-sm font-medium mb-2 text-text-primary">
                 Subject *
               </label>
               <input
@@ -82,13 +85,13 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 bg-bg-secondary border border-border text-text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 placeholder="How can we help?"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label htmlFor="message" className="block text-sm font-medium mb-2 text-text-primary">
                 Message *
               </label>
               <textarea
@@ -98,20 +101,20 @@ export default function ContactPage() {
                 rows="6"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 bg-bg-secondary border border-border text-text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all"
                 placeholder="Your message..."
               />
             </div>
 
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full px-6 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-all shadow-lg transform active:scale-95"
             >
               Send Message
             </button>
 
             {submitted && (
-              <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
+              <div className="p-4 bg-green-500/10 border border-green-500 rounded-lg text-green-500 font-medium reveal">
                 Thank you! Your message has been sent successfully.
               </div>
             )}
@@ -119,46 +122,37 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Information */}
-        <div>
-          <div className="bg-gray-50 rounded-lg p-8">
-            <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
+        <div className="reveal reveal-delay-2">
+          <div className="bg-bg-secondary rounded-2xl p-8 border border-border">
+            <h2 className="text-2xl font-bold mb-6 text-text-primary font-outfit">Get in Touch</h2>
             
             <div className="space-y-6">
               <div>
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                <h3 className="font-semibold mb-2 flex items-center gap-2 text-text-primary">
                   <span>📧</span> Email
                 </h3>
-                <p className="text-gray-600">support@devtoolshub.com</p>
+                <p className="text-text-secondary">support@devtoolshub.com</p>
               </div>
 
               <div>
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                <h3 className="font-semibold mb-2 flex items-center gap-2 text-text-primary">
                   <span>💬</span> Response Time
                 </h3>
-                <p className="text-gray-600">We typically respond within 24-48 hours</p>
+                <p className="text-text-secondary">We typically respond within 24-48 hours</p>
               </div>
 
-              <div>
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <span>🌐</span> Social Media
-                </h3>
-                <div className="flex gap-4">
-                  <a href="#" className="text-blue-600 hover:underline">Twitter</a>
-                  <a href="#" className="text-blue-600 hover:underline">GitHub</a>
-                  <a href="#" className="text-blue-600 hover:underline">LinkedIn</a>
-                </div>
-              </div>
+
             </div>
           </div>
 
-          <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
-            <h3 className="font-semibold mb-3">Frequently Asked Questions</h3>
-            <p className="text-sm text-gray-700 mb-3">
+          <div className="mt-8 p-6 bg-bg-primary rounded-2xl border border-border reveal">
+            <h3 className="font-bold text-text-primary mb-3">Frequently Asked Questions</h3>
+            <p className="text-sm text-text-secondary mb-4">
               Before contacting us, check our FAQ section for quick answers to common questions.
             </p>
-            <a href="/#faq" className="text-blue-600 hover:underline font-semibold">
-              View FAQ →
-            </a>
+            <Link href="/#faq" className="text-primary hover:underline font-bold flex items-center gap-1 group">
+              View FAQ <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
           </div>
         </div>
       </div>

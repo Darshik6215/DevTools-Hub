@@ -1,17 +1,28 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import AdComponent from '@/components/AdComponent'
-import ToolCard from '@/components/ToolCard'
 import TrustBadges from '@/components/TrustBadges'
 import FAQSchema from '@/components/FAQSchema'
+import FAQAccordion from '@/components/FAQAccordion'
+
+// Dynamic import for Swiper to avoid SSR issues
+const ToolSlider = dynamic(() => import('@/components/ToolSlider'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center py-20">
+      <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
+    </div>
+  ),
+})
 
 // Enhanced SEO metadata
 export const metadata = {
-  title: 'Free Online JSON Formatter, Password Generator & Image Converter Tools | DevTools Hub',
+  title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',
   description: 'Free online developer tools: Format & validate JSON instantly, generate secure passwords, convert images between PNG/JPG/WebP. Fast, secure, no signup required.',
   keywords: ['json formatter', 'password generator', 'image converter', 'online tools', 'free developer tools', 'json validator', 'secure password', 'image format converter'],
   authors: [{ name: 'DevTools Hub' }],
   openGraph: {
-    title: 'Free Online Developer Tools - JSON, Password, Image Converter',
+    title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',
     description: 'Professional-grade developer tools: JSON formatter, password generator, and image converter. 100% free, fast, and secure.',
     url: 'https://dev-tools-hub-three.vercel.app',
     siteName: 'DevTools Hub',
@@ -27,7 +38,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Online Developer Tools - DevTools Hub',
+    title: 'Free Online Developer Tools | DevTools Hub',
     description: 'Format JSON, generate passwords, convert images - all free!',
     images: ['https://dev-tools-hub-three.vercel.app/twitter-image.png'],
   },
@@ -48,6 +59,22 @@ export default function Home() {
       steps: ['Paste your JSON', 'Click Format', 'Copy result']
     },
     {
+      title: 'API Tester',
+      description: 'Test REST APIs like Postman with custom headers and body',
+      href: '/api-tester',
+      icon: '🧪',
+      features: ['Test APIs', 'Custom Headers', 'View Response'],
+      steps: ['Enter URL', 'Add headers', 'Send request']
+    },
+    {
+      title: 'Image Compressor',
+      description: 'Compress images by up to 80% without losing quality',
+      href: '/image-compressor',
+      icon: '🗜️',
+      features: ['Reduce Size', 'Keep Quality', 'Fast Processing'],
+      steps: ['Upload image', 'Adjust quality', 'Download result']
+    },
+    {
       title: 'Password Generator',
       description: 'Generate cryptographically secure passwords with custom options',
       href: '/password-generator',
@@ -56,8 +83,80 @@ export default function Home() {
       steps: ['Choose length', 'Select options', 'Generate & copy']
     },
     {
+      title: 'JWT Encoder',
+      description: 'Create and sign JWT tokens with custom payload and secret',
+      href: '/jwt-encoder',
+      icon: '🔐',
+      features: ['Create JWT', 'Sign Tokens', 'Custom Payload'],
+      steps: ['Add payload', 'Enter secret', 'Generate token']
+    },
+    {
+      title: 'JSON ⇄ CSV Converter',
+      description: 'Convert between JSON and CSV formats instantly',
+      href: '/json-csv-converter',
+      icon: '🔄',
+      features: ['JSON to CSV', 'CSV to JSON', 'Download Files'],
+      steps: ['Paste data', 'Convert', 'Download result']
+    },
+    {
+      title: 'Base64 Converter',
+      description: 'Encode and decode Base64 strings and files instantly',
+      href: '/base64-converter',
+      icon: '🔤',
+      features: ['Text & Files', 'Encode/Decode', 'Fast Conversion'],
+      steps: ['Enter text/file', 'Choose mode', 'Get result']
+    },
+    {
+      title: 'Code Formatter',
+      description: 'Minify and beautify HTML, CSS, JavaScript code',
+      href: '/code-formatter',
+      icon: '⚡',
+      features: ['Minify Code', 'Beautify Code', 'Multiple Languages'],
+      steps: ['Paste code', 'Select mode', 'Format instantly']
+    },
+    {
+      title: 'Timestamp Converter',
+      description: 'Convert Unix timestamps to human-readable dates',
+      href: '/timestamp-converter',
+      icon: '⏰',
+      features: ['Unix to Date', 'Date to Unix', 'Multiple Formats'],
+      steps: ['Enter timestamp', 'Convert', 'Copy result']
+    },
+    {
+      title: 'Hash Generator',
+      description: 'Generate MD5, SHA256, SHA512 hashes for security',
+      href: '/hash-generator',
+      icon: '🔐',
+      features: ['Multiple Algorithms', 'Secure Hashing', 'Instant Results'],
+      steps: ['Enter text', 'Generate hash', 'Copy hash']
+    },
+    {
+      title: 'Color Picker',
+      description: 'Pick colors and convert between HEX, RGB, HSL formats',
+      href: '/color-picker',
+      icon: '🎨',
+      features: ['Color Picker', 'Format Converter', 'Preset Colors'],
+      steps: ['Pick color', 'View formats', 'Copy code']
+    },
+    {
+      title: 'UUID Generator',
+      description: 'Generate unique identifiers for databases and APIs',
+      href: '/uuid-generator',
+      icon: '🆔',
+      features: ['UUID v4', 'Bulk Generate', 'Instant Copy'],
+      steps: ['Set count', 'Generate', 'Copy UUIDs']
+    },
+    {
+      title: 'URL Encoder',
+      description: 'Encode and decode URLs for safe transmission',
+      href: '/url-encoder',
+      icon: '🔗',
+      features: ['Encode URLs', 'Decode URLs', 'Safe Characters'],
+      steps: ['Enter URL', 'Choose mode', 'Get result']
+    },
+    {
       title: 'Image Converter',
-      description: 'Convert images between PNG, JPG, WebP and GIF formats instantly',
+      description: 'Convert images between PNG, JPG, WebP and GIF formats',
       href: '/image-converter',
       icon: '🖼️',
       features: ['Multiple Formats', 'Fast Conversion', 'High Quality'],
@@ -65,25 +164,28 @@ export default function Home() {
     }
   ]
 
-  // Latest blog posts
+  // Latest blog posts (Updated with new ones)
   const latestPosts = [
     {
-      title: 'How to Fix Common JSON Errors',
-      excerpt: 'Learn how to identify and fix the most common JSON syntax errors quickly.',
-      slug: 'how-to-fix-json-errors',
-      date: '2024-01-15'
+      title: 'API Testing Complete Guide 2024 - Test REST APIs Like a Pro',
+      excerpt: 'Learn API testing from basics to advanced. Complete guide covering REST APIs, HTTP methods, and tools.',
+      slug: 'api-testing-complete-guide',
+      date: 'Jan 20, 2024',
+      image: '🧪'
     },
     {
-      title: 'Best Password Security Practices in 2024',
-      excerpt: 'Discover the latest password security best practices to protect your accounts.',
-      slug: 'password-security-practices',
-      date: '2024-01-10'
+      title: 'JWT Authentication Guide - How JSON Web Tokens Work',
+      excerpt: 'Understand JWT authentication, its structure, and how to use tokens securely in web applications.',
+      slug: 'jwt-authentication-guide',
+      date: 'Mar 15, 2024',
+      image: '🔑'
     },
     {
-      title: 'Convert Images Without Losing Quality',
-      excerpt: 'Complete guide to converting images while maintaining optimal quality.',
-      slug: 'convert-images-without-losing-quality',
-      date: '2024-01-05'
+      title: 'Regex Tutorial for Beginners - Master Regular Expressions',
+      excerpt: 'Master Regular Expressions (Regex) with our beginner-friendly tutorial. Learn syntax and patterns.',
+      slug: 'regex-tutorial',
+      date: 'Feb 10, 2024',
+      image: '🔤'
     }
   ]
 
@@ -95,19 +197,19 @@ export default function Home() {
     },
     {
       question: 'Is DevTools Hub free to use?',
-      answer: 'Yes! All tools on DevTools Hub are completely free to use. There are no hidden fees, subscriptions, or limitations on usage.'
+      answer: 'Yes! All tools on DevTools Hub are completely free to use. There are no hidden fees, subscriptions, or limitations on usage. We aim to help developers save time.'
     },
     {
       question: 'Do you store my data?',
-      answer: 'No, we do not store any of your data. All processing happens in your browser or temporarily on our servers and is immediately discarded after processing.'
+      answer: 'No, we do not store any of your data. All processing happens in your browser or temporarily on our servers and is immediately discarded after processing. Privacy is our top priority.'
     },
     {
       question: 'Can I use these tools offline?',
-      answer: 'Currently, our tools require an internet connection. However, we are working on offline capabilities for future releases.'
+      answer: 'Currently, our tools require an internet connection. However, many of our tools like the JSON Formatter and Password Generator work entirely client-side for maximum speed.'
     },
     {
       question: 'How secure is the password generator?',
-      answer: 'Our password generator uses cryptographically secure random number generation (secrets module in Python) to ensure maximum security and unpredictability.'
+      answer: 'Our password generator uses cryptographically secure random number generation to ensure maximum security. It never sends your generated passwords to any server.'
     }
   ]
 
@@ -116,249 +218,249 @@ export default function Home() {
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
 
-      {/* Enhanced Hero Section with Trust Badges */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-5xl mx-auto">
-            {/* SEO-Optimized H1 */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Free Online JSON Formatter, Password Generator & Image Converter Tools
+      {/* Enhanced Hero Section */}
+      <section className="bg-bg-primary py-16 md:py-28 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent rounded-full blur-[120px]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-5xl mx-auto reveal">
+            <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent">
+                Power Up Your Workflow with Free DevTools
               </span>
             </h1>
             
-            {/* Keyword-Rich Subheading */}
-            <p className="text-xl md:text-2xl text-gray-700 mb-4 font-medium">
-              Professional Developer Tools - Format JSON, Generate Secure Passwords, Convert Images Instantly
+            <p className="text-xl md:text-2xl text-text-primary mb-6 font-semibold">
+              JSON Formatter • Password Generator • Image Converter • API Tester
             </p>
             
-            {/* Benefits Description */}
-            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              100% free online tools for developers and designers. Validate and beautify JSON data, 
-              create cryptographically secure passwords, and convert images between PNG, JPG, WebP formats. 
-              No signup required. Works in your browser. Lightning fast.
+            <p className="text-lg text-text-secondary mb-10 leading-relaxed max-w-3xl mx-auto">
+              100% free, professional-grade tools for modern developers. Fast, secure, and built for productivity. 
+              No signup, no tracking, just pure utility right in your browser.
             </p>
             
-            {/* Dual CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <a
                 href="#tools"
-                className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-bold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto px-12 py-4 bg-primary text-white text-lg font-bold rounded-xl hover:opacity-90 transition-all shadow-xl shadow-primary/20 transform hover:-translate-y-1"
               >
-                🚀 Use Tools Free
+                Start Using Tools
               </a>
               <Link
                 href="/blog"
-                className="w-full sm:w-auto px-10 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-all shadow-md hover:shadow-lg"
+                className="w-full sm:w-auto px-12 py-4 bg-card-bg text-primary text-lg font-bold rounded-xl border border-primary/30 hover:bg-bg-secondary transition-all shadow-lg"
               >
-                📚 View Blog
+                Read Blogs
               </Link>
             </div>
             
-            {/* Trust Badges */}
-            <TrustBadges />
+            {/* Quick Stats / Trust Badges */}
+            <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12 py-8 border-y border-border/10 bg-white/5 backdrop-blur-sm rounded-3xl">
+               <div className="text-center">
+                 <div className="text-3xl font-black text-primary">18+</div>
+                 <div className="text-xs uppercase tracking-widest text-text-secondary font-bold">Free Tools</div>
+               </div>
+               <div className="text-center">
+                 <div className="text-3xl font-black text-accent">100%</div>
+                 <div className="text-xs uppercase tracking-widest text-text-secondary font-bold">Private</div>
+               </div>
+               <div className="text-center">
+                 <div className="text-3xl font-black text-green-500">Fast</div>
+                 <div className="text-xs uppercase tracking-widest text-text-secondary font-bold">Performance</div>
+               </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Ad Placement - Below Hero */}
-      <div className="container mx-auto px-4 py-6">
+      {/* Ad Placement */}
+      <div className="container mx-auto px-4 py-8 reveal">
         <AdComponent size="leaderboard" className="max-w-4xl mx-auto" />
       </div>
 
-      {/* Popular Tools Section with Enhanced Cards */}
-      <section id="tools" className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Popular Developer Tools</h2>
-          <p className="text-xl text-gray-600">
-            Choose from our collection of powerful, free online tools
+      {/* Popular Tools Section */}
+      <section id="tools" className="container mx-auto px-4 py-20">
+        <div className="text-center mb-16 reveal">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-text-primary uppercase tracking-tighter">Popular Tools</h2>
+          <div className="w-24 h-1.5 bg-primary mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto font-medium">
+            Everything you need for data formatting, security, and image processing.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {tools.map((tool) => (
-            <ToolCard key={tool.href} tool={tool} />
-          ))}
+        <div className="max-w-7xl mx-auto">
+          <ToolSlider tools={tools} />
+        </div>
+
+        <div className="text-center mt-16">
+          <Link
+            href="/tools"
+            className="inline-block px-12 py-4 bg-primary text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-xl shadow-primary/20 transform hover:-translate-y-1"
+          >
+            Explore All Tools →
+          </Link>
         </div>
       </section>
 
-      {/* SEO Content Section - What is JSON Formatter */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">What is a JSON Formatter?</h2>
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-4">
-              A <Link href="/json-formatter" className="text-blue-600 hover:underline font-semibold">JSON formatter</Link> is an essential online tool that helps developers format, validate, and beautify JSON (JavaScript Object Notation) data. 
-              JSON has become the standard data format for web APIs, configuration files, and data exchange between applications. However, raw JSON 
-              data is often minified or poorly formatted, making it difficult to read and debug.
-            </p>
-            <p className="mb-4">
-              Our <Link href="/json-formatter" className="text-blue-600 hover:underline font-semibold">free JSON formatter tool</Link> instantly transforms compressed or messy JSON into a clean, readable format with proper indentation and 
-              syntax highlighting. Whether you&apos;re debugging API responses, validating configuration files, or simply trying to understand complex 
-              JSON structures, our formatter makes the process effortless.
-            </p>
-            <p className="mb-4">
-              <strong>Key features of our JSON formatter include:</strong> Real-time validation that catches syntax errors immediately, automatic 
-              indentation for improved readability, error detection with helpful messages, and the ability to handle large JSON files efficiently. 
-              The tool works entirely in your browser, ensuring your data remains private and secure.
-            </p>
+      {/* SEO Info Section 1 - JSON Formatter */}
+      <section className="bg-bg-secondary py-24 reveal overflow-hidden relative">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="lg:w-1/2 order-2 lg:order-1">
+              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Master Your JSON Data</h2>
+              <div className="space-y-6 text-text-secondary text-lg leading-relaxed">
+                <p>
+                  Our <Link href="/json-formatter" className="text-primary font-bold hover:underline">JSON Formatter</Link> is a powerful, professional-grade tool designed for developers. Whether you&apos;re dealing with minified API responses or complex config files, we make it readable.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary font-bold">✓</span>
+                    <span><strong>Real-time Validation:</strong> Instantly catch syntax errors as you type.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary font-bold">✓</span>
+                    <span><strong>Smart Indentation:</strong> Custom spacing options for the perfect look.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-primary font-bold">✓</span>
+                    <span><strong>Error Highlighting:</strong> Exactly where the problem is in your code.</span>
+                  </li>
+                </ul>
+                <p>
+                  Built for speed and security, all formatting happens 100% in your browser. Your sensitive data never leaves your device.
+                </p>
+              </div>
+            </div>
+            <div className="lg:w-1/2 order-1 lg:order-2 bg-card-bg p-12 rounded-[3rem] border border-border shadow-2xl relative">
+               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full"></div>
+               <div className="text-[12rem] text-center animate-pulse">📋</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Ad Placement - Between Sections */}
-      <div className="container mx-auto px-4 py-8">
-        <AdComponent size="banner" className="max-w-4xl mx-auto" />
-      </div>
-
-      {/* SEO Content Section - Password Generator */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">Why Use a Password Generator?</h2>
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-4">
-              In today&apos;s digital age, password security is more critical than ever. Cybersecurity experts recommend using unique, complex passwords 
-              for every online account, but creating and remembering such passwords is nearly impossible without help. That&apos;s where our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">password generator</Link> comes in.
-            </p>
-            <p className="mb-4">
-              Our <Link href="/password-generator" className="text-blue-600 hover:underline font-semibold">secure password generator</Link> creates cryptographically strong passwords using advanced random number generation algorithms. Unlike 
-              simple password generators, we use Python&apos;s secrets module, which is specifically designed for generating cryptographically strong 
-              random numbers suitable for managing data such as passwords and security tokens.
-            </p>
-            <p className="mb-4">
-              <strong>Benefits of using our password generator:</strong> Generate passwords from 8 to 64 characters in length, customize character 
-              types including uppercase letters, lowercase letters, numbers, and special symbols, instant password strength indicator, one-click 
-              copy to clipboard functionality, and complete privacy - passwords are generated in real-time and never stored on our servers.
-            </p>
-            <p>
-              Security experts recommend using passwords that are at least 12 characters long and include a mix of different character types. 
-              Our tool makes it easy to create such passwords instantly, helping you maintain strong security across all your online accounts.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SEO Content Section - Image Converter */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-6">Benefits of Using an Image Converter</h2>
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            <p className="mb-4">
-              Image format conversion is a common need for web developers, designers, and content creators. Different platforms and use cases 
-              require different image formats - websites need optimized WebP images for fast loading, social media platforms prefer JPG, while 
-              graphics with transparency require PNG format.
-            </p>
-            <p className="mb-4">
-              Our <Link href="/image-converter" className="text-blue-600 hover:underline font-semibold">free online image converter</Link> supports all major image formats including PNG, JPG, WebP, and GIF. The tool uses advanced image 
-              processing algorithms to ensure high-quality conversions while optimizing file sizes. Whether you're converting a single image or 
-              need to change formats regularly, our tool provides a fast and reliable solution.
-            </p>
-            <p className="mb-4">
-              <strong>Key advantages of our image converter:</strong> Support for multiple formats (PNG, JPG, WebP, GIF), high-quality conversion 
-              with optimized compression, instant preview of original and converted images, automatic handling of transparency when converting 
-              between formats, fast processing with no file size limits up to 10MB, and secure processing - images are converted in real-time 
-              and immediately deleted from our servers.
-            </p>
-            <p>
-              Modern web development demands optimized images for better performance and user experience. WebP format, for example, can reduce 
-              image file sizes by up to 30% compared to JPG while maintaining the same visual quality. Our <Link href="/image-converter" className="text-blue-600 hover:underline font-semibold">converter</Link> makes it easy to leverage 
-              these modern formats for your projects.
-            </p>
+      {/* Info Section 2 - Password Generator */}
+      <section className="py-24 reveal overflow-hidden">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="lg:w-1/2 bg-card-bg p-12 rounded-[3rem] border border-border shadow-2xl relative">
+               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 blur-3xl rounded-full"></div>
+               <div className="text-[12rem] text-center">🔐</div>
+            </div>
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Unbreakable Password Security</h2>
+              <div className="space-y-6 text-text-secondary text-lg leading-relaxed">
+                <p>
+                  In an age of data breaches, a strong password is your first line of defense. Our <Link href="/password-generator" className="text-accent font-bold hover:underline">Secure Password Generator</Link> uses military-grade randomization.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="p-4 bg-bg-secondary rounded-2xl border border-border">
+                    <div className="text-2xl mb-2">🛡️</div>
+                    <h4 className="font-bold mb-1">Ultra Secure</h4>
+                    <p className="text-sm">Cryptographically strong random numbers.</p>
+                  </div>
+                  <div className="p-4 bg-bg-secondary rounded-2xl border border-border">
+                    <div className="text-2xl mb-2">⚡</div>
+                    <h4 className="font-bold mb-1">Instant</h4>
+                    <p className="text-sm">Generate and copy in one click.</p>
+                  </div>
+                </div>
+                <p>
+                  Customize length, symbols, and complexity. Protect your digital life with passwords that hackers can&apos;t crack.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Latest Blog Posts Section */}
-      <section className="py-16">
+      <section className="bg-bg-secondary py-24 reveal">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Latest Articles</h2>
-            <p className="text-xl text-gray-600">
-              Learn tips, tricks, and best practices from our blog
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-4 text-text-primary uppercase tracking-tighter">Latest Blogs</h2>
+            <div className="w-24 h-1.5 bg-accent mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-text-secondary max-w-2xl mx-auto font-medium">
+              Expert guides and articles to help you master development.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {latestPosts.map((post) => (
-              <Link
+            {latestPosts.map((post, index) => (
+              <article
                 key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="block bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 hover:border-blue-400 hover:-translate-y-1"
+                className={`group bg-card-bg rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-border hover:border-primary hover:-translate-y-2`}
               >
-                <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-                <h3 className="text-xl font-semibold mb-3 hover:text-blue-600 transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                <span className="text-blue-600 font-semibold hover:underline">
-                  Read More →
-                </span>
-              </Link>
+                <div className="h-48 bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-500">
+                  {post.image}
+                </div>
+                <div className="p-8">
+                  <div className="text-xs text-text-secondary mb-3 font-bold uppercase tracking-widest">{post.date}</div>
+                  <h3 className="text-2xl font-black mb-4 text-text-primary group-hover:text-primary transition-colors line-clamp-2">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+                  <p className="text-text-secondary mb-6 line-clamp-3 text-sm leading-relaxed">{post.excerpt}</p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-2 text-primary font-black uppercase text-xs tracking-widest hover:gap-3 transition-all"
+                  >
+                    Read Guide <span>→</span>
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-16">
             <Link
               href="/blog"
-              className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+              className="inline-block px-12 py-4 bg-accent text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-xl shadow-accent/20 transform hover:-translate-y-1"
             >
-              View All Articles
+              View All Blogs
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section with Schema */}
-      <section className="bg-gray-50 py-16" id="faq">
+      {/* FAQ Section with Accordion */}
+      <section className="py-24 reveal" id="faq">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
+          <h2 className="text-4xl md:text-5xl font-black mb-16 text-center text-text-primary tracking-tight">Questions? Answers.</h2>
+          <FAQAccordion faqs={faqs} />
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="bg-bg-secondary py-24 reveal">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-black mb-16 text-center text-text-primary">Why DevTools Hub?</h2>
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {[
+              { icon: '⚡', title: 'Lightning Fast', desc: 'Optimized for extreme speed. No waiting, just instant results every time.' },
+              { icon: '🔒', title: 'Privacy First', desc: 'We never see your data. Everything happens right inside your browser.' },
+              { icon: '📱', title: 'Perfectly Mobile', desc: 'Need a tool on the go? Our site is fully optimized for smartphones and tablets.' }
+            ].map((feature, index) => (
+              <div 
+                key={index} 
+                className="text-center group bg-card-bg p-10 rounded-[2.5rem] border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 relative overflow-hidden"
+              >
+                {/* Subtle Background Glow */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="text-7xl mb-8 transform group-hover:scale-110 transition-transform duration-500 relative z-10">{feature.icon}</div>
+                <h3 className="text-2xl font-black mb-4 text-text-primary uppercase tracking-tight relative z-10 group-hover:text-primary transition-colors">{feature.title}</h3>
+                <p className="text-text-secondary leading-relaxed font-medium relative z-10">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Why Choose DevTools Hub?</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-5xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-3">Lightning Fast</h3>
-              <p className="text-gray-600">
-                Optimized for speed and performance. All tools load instantly and process data in real-time.
-              </p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-5xl mb-4">🔒</div>
-              <h3 className="text-xl font-semibold mb-3">Secure & Private</h3>
-              <p className="text-gray-600">
-                Your data is processed securely and never stored on our servers. Complete privacy guaranteed.
-              </p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="text-5xl mb-4">📱</div>
-              <h3 className="text-xl font-semibold mb-3">Responsive Design</h3>
-              <p className="text-gray-600">
-                Works perfectly on all devices - desktop, tablet, and mobile. Use anywhere, anytime.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ad Placement - Above Footer */}
-      <div className="container mx-auto px-4 py-8">
+      {/* Ad Placement */}
+      <div className="container mx-auto px-4 py-8 reveal">
         <AdComponent size="leaderboard" className="max-w-4xl mx-auto" />
       </div>
     </>
