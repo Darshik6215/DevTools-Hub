@@ -150,27 +150,36 @@ export default function APITesterPage() {
           </div>
 
           {/* Method and URL */}
-          <div className="flex gap-3 mb-4">
-            <select
-              value={method}
-              onChange={(e) => setMethod(e.target.value)}
-              className="bg-bg-secondary text-text-primary rounded-lg px-4 py-3 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none font-medium"
-            >
-              {methods.map(m => (
-                <option key={m} value={m}>{m}</option>
-              ))}
-            </select>
+          <div className="flex flex-col sm:flex-row gap-3 mb-4">
+            <div className="flex gap-2">
+              <select
+                value={method}
+                onChange={(e) => setMethod(e.target.value)}
+                className="bg-bg-secondary text-text-primary rounded-lg px-4 py-3 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none font-medium min-w-[100px]"
+              >
+                {methods.map(m => (
+                  <option key={m} value={m}>{m}</option>
+                ))}
+              </select>
+              <button
+                onClick={sendRequest}
+                disabled={loading}
+                className="flex-1 sm:hidden px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg transition-colors font-medium shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? '⏳' : '🚀 Send'}
+              </button>
+            </div>
             <input
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://api.example.com/endpoint"
-              className="flex-1 bg-bg-secondary text-text-primary rounded-lg px-4 py-3 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
+              className="flex-1 bg-bg-secondary text-text-primary rounded-lg px-4 py-3 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none w-full"
             />
             <button
               onClick={sendRequest}
               disabled={loading}
-              className="px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg transition-colors font-medium shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hidden sm:block px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-lg transition-colors font-medium shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? '⏳ Sending...' : '🚀 Send'}
             </button>
@@ -189,14 +198,22 @@ export default function APITesterPage() {
             </div>
             <div className="space-y-2">
               {headers.map((header, index) => (
-                <div key={index} className="flex gap-2">
-                  <input
-                    type="text"
-                    value={header.key}
-                    onChange={(e) => updateHeader(index, 'key', e.target.value)}
-                    placeholder="Header name"
-                    className="flex-1 bg-bg-secondary text-text-primary rounded-lg px-3 py-2 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-sm"
-                  />
+                <div key={index} className="flex flex-col sm:flex-row gap-2 bg-bg-secondary/50 p-3 sm:p-0 rounded-lg sm:bg-transparent border border-border sm:border-none">
+                  <div className="flex gap-2 flex-1">
+                    <input
+                      type="text"
+                      value={header.key}
+                      onChange={(e) => updateHeader(index, 'key', e.target.value)}
+                      placeholder="Header name"
+                      className="flex-1 bg-bg-secondary text-text-primary rounded-lg px-3 py-2 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-sm"
+                    />
+                    <button
+                      onClick={() => removeHeader(index)}
+                      className="sm:hidden px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors"
+                    >
+                      ✕
+                    </button>
+                  </div>
                   <input
                     type="text"
                     value={header.value}
@@ -206,7 +223,7 @@ export default function APITesterPage() {
                   />
                   <button
                     onClick={() => removeHeader(index)}
-                    className="px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors"
+                    className="hidden sm:block px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors"
                   >
                     ✕
                   </button>
@@ -250,9 +267,9 @@ export default function APITesterPage() {
         {/* Response Section */}
         {response && (
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <h3 className="text-xl font-bold text-text-primary">Response</h3>
-              <div className="flex items-center gap-4 text-sm">
+              <div className="flex flex-wrap items-center gap-3 text-sm">
                 <span className={`px-3 py-1 rounded-full font-medium ${
                   response.status >= 200 && response.status < 300
                     ? 'bg-green-500/20 text-green-400'
@@ -262,8 +279,10 @@ export default function APITesterPage() {
                 }`}>
                   {response.status} {response.statusText}
                 </span>
-                <span className="text-text-secondary">⏱️ {response.duration}ms</span>
-                <span className="text-text-secondary">📦 {response.size} bytes</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-text-secondary whitespace-nowrap">⏱️ {response.duration}ms</span>
+                  <span className="text-text-secondary whitespace-nowrap">📦 {response.size} bytes</span>
+                </div>
               </div>
             </div>
 
