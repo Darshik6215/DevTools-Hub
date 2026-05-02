@@ -18,8 +18,8 @@ const ToolSlider = dynamic(() => import('@/components/ToolSlider'), {
 // Enhanced SEO metadata
 export const metadata = {
   title: 'Free Online Developer Tools | DevTools Hub - DevTools Kit',
-  description: 'DevTools Hub (devtoolskit.pro): Free online developer tools for formatting JSON, testing APIs, generating passwords, and converting images. Fast, secure, and professional.',
-  keywords: ['json formatter', 'password generator', 'image converter', 'online tools', 'free developer tools', 'devtoolskit', 'devtools hub', 'devtoolskit.pro'],
+  description: 'DevTools Hub (devtoolskit.co.in): Free online developer tools for formatting JSON, testing APIs, generating passwords, and converting images. Fast, secure, and professional.',
+  keywords: ['json formatter', 'password generator', 'image converter', 'online tools', 'free developer tools', 'devtoolskit', 'devtools hub', 'devtoolskit.co.in'],
   authors: [{ name: 'DevTools Hub' }],
   openGraph: {
     title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',

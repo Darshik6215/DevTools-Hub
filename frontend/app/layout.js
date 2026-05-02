@@ -11,7 +11,7 @@ export const metadata = {
     default: 'DevTools Hub - Free Developer Tools Online | DevTools Kit',
     template: '%s | DevTools Hub - DevTools Kit'
   },
-  description: 'DevTools Hub (devtoolskit.pro): Free online developer tools including JSON formatter, password generator, image converter and more. Professional utilities for modern developers.',
+  description: 'DevTools Hub (devtoolskit.co.in): Free online developer tools including JSON formatter, password generator, image converter and more. Professional utilities for modern developers.',
   keywords: [
     'developer tools',
     'json formatter',
