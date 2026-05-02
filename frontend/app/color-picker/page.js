@@ -99,9 +99,20 @@ export default function ColorPicker() {
 
         {/* HEX Input */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold text-text-primary mb-2">
-            HEX Color
-          </label>
+          <div className="flex justify-between items-center mb-2">
+            <label className="text-sm font-semibold text-text-primary">
+              HEX Color
+            </label>
+            <button
+              onClick={() => {
+                setColor('#ff4757')
+                setHexInput('#ff4757')
+              }}
+              className="text-sm text-primary hover:underline font-medium"
+            >
+              Load Sample
+            </button>
+          </div>
           <div className="flex gap-2">
             <input
               type="text"

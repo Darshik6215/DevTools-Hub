@@ -17,9 +17,9 @@ const ToolSlider = dynamic(() => import('@/components/ToolSlider'), {
 
 // Enhanced SEO metadata
 export const metadata = {
-  title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',
-  description: 'Free online developer tools: Format & validate JSON instantly, generate secure passwords, convert images between PNG/JPG/WebP. Fast, secure, no signup required.',
-  keywords: ['json formatter', 'password generator', 'image converter', 'online tools', 'free developer tools', 'json validator', 'secure password', 'image format converter'],
+  title: 'Free Online Developer Tools | DevTools Hub - DevTools Kit',
+  description: 'DevTools Hub (devtoolskit.pro): Free online developer tools for formatting JSON, testing APIs, generating passwords, and converting images. Fast, secure, and professional.',
+  keywords: ['json formatter', 'password generator', 'image converter', 'online tools', 'free developer tools', 'devtoolskit', 'devtools hub', 'devtoolskit.pro'],
   authors: [{ name: 'DevTools Hub' }],
   openGraph: {
     title: 'Free Online Developer Tools | JSON Formatter, API Tester & More',
@@ -161,6 +161,38 @@ export default function Home() {
       icon: '🖼️',
       features: ['Multiple Formats', 'Fast Conversion', 'High Quality'],
       steps: ['Upload image', 'Select format', 'Download result']
+    },
+    {
+      title: 'Dockerfile Generator',
+      description: 'Generate optimized Dockerfiles for Node.js, Python, PHP and more',
+      href: '/dockerfile-generator',
+      icon: '🐳',
+      features: ['Multiple Languages', 'Custom Ports', 'Dockerignore Support'],
+      steps: ['Select language', 'Configure options', 'Copy or Download']
+    },
+    {
+      title: '.env Generator & Validator',
+      description: 'Create and validate environment files for your projects',
+      href: '/env-generator-validator',
+      icon: '🛠️',
+      features: ['Dynamic Generation', 'Real-time Validation', 'Syntax Checking'],
+      steps: ['Choose mode', 'Enter variables', 'Copy or Download']
+    },
+    {
+      title: '.gitignore Generator',
+      description: 'Generate professional .gitignore files for your projects instantly',
+      href: '/gitignore-generator',
+      icon: '📄',
+      features: ['9+ Tech Templates', 'Auto-Merge', 'Duplicate Removal'],
+      steps: ['Select technologies', 'Review content', 'Copy or Download']
+    },
+    {
+      title: 'SLA Uptime Calculator',
+      description: 'Calculate allowed downtime for 99.9%, 99.99%, and 99.999% SLA targets',
+      href: '/sla-uptime-calculator',
+      icon: '⏱️',
+      features: ['Preset SLA Levels', 'Multi-Period', 'Instant Results'],
+      steps: ['Enter uptime %', 'Select period', 'Copy results']
     }
   ]
 
@@ -305,71 +337,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEO Info Section 1 - JSON Formatter */}
+      {/* SEO Info Section 1 - Dockerfile Generator */}
       <section className="bg-bg-secondary py-24 reveal overflow-hidden relative">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="lg:w-1/2 order-2 lg:order-1">
-              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Master Your JSON Data</h2>
+              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Deploy Faster with Docker</h2>
               <div className="space-y-6 text-text-secondary text-lg leading-relaxed">
                 <p>
-                  Our <Link href="/json-formatter" className="text-primary font-bold hover:underline">JSON Formatter</Link> is a powerful, professional-grade tool designed for developers. Whether you&apos;re dealing with minified API responses or complex config files, we make it readable.
+                  Our <Link href="/dockerfile-generator" className="text-primary font-bold hover:underline">Dockerfile Generator</Link> is a must-have tool for modern developers and DevOps engineers. Eliminate the guesswork and generate production-ready Docker configurations in seconds.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
-                    <span><strong>Real-time Validation:</strong> Instantly catch syntax errors as you type.</span>
+                    <span><strong>Multi-Language Support:</strong> Optimized templates for Node.js, Python, PHP, and Java.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
-                    <span><strong>Smart Indentation:</strong> Custom spacing options for the perfect look.</span>
+                    <span><strong>Security First:</strong> Best practices implemented to ensure minimal and secure image sizes.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
-                    <span><strong>Error Highlighting:</strong> Exactly where the problem is in your code.</span>
+                    <span><strong>One-Click Export:</strong> Download your Dockerfile or copy it directly to your project.</span>
                   </li>
                 </ul>
                 <p>
-                  Built for speed and security, all formatting happens 100% in your browser. Your sensitive data never leaves your device.
+                  Whether you&apos;re containerizing a simple script or a complex microservice, our generator provides a clean, documented, and efficient starting point for your deployment.
                 </p>
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2 bg-card-bg p-12 rounded-[3rem] border border-border shadow-2xl relative">
                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-3xl rounded-full"></div>
-               <div className="text-[12rem] text-center animate-pulse">📋</div>
+               <div className="text-[12rem] text-center animate-bounce-slow">🐳</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Info Section 2 - Password Generator */}
+      {/* Info Section 2 - .env Generator & Validator */}
       <section className="py-24 reveal overflow-hidden">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div className="lg:w-1/2 bg-card-bg p-12 rounded-[3rem] border border-border shadow-2xl relative">
                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 blur-3xl rounded-full"></div>
-               <div className="text-[12rem] text-center">🔐</div>
+               <div className="text-[12rem] text-center animate-pulse">🛠️</div>
             </div>
             <div className="lg:w-1/2">
-              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Unbreakable Password Security</h2>
+              <h2 className="text-4xl font-black mb-8 text-text-primary tracking-tight">Master Your Environment</h2>
               <div className="space-y-6 text-text-secondary text-lg leading-relaxed">
                 <p>
-                  In an age of data breaches, a strong password is your first line of defense. Our <Link href="/password-generator" className="text-accent font-bold hover:underline">Secure Password Generator</Link> uses military-grade randomization.
+                  Managing environment variables shouldn&apos;t be a headache. Our <Link href="/env-generator-validator" className="text-accent font-bold hover:underline">.env Generator & Validator</Link> provides a secure and intuitive interface for handling your project secrets.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="p-4 bg-bg-secondary rounded-2xl border border-border">
-                    <div className="text-2xl mb-2">🛡️</div>
-                    <h4 className="font-bold mb-1">Ultra Secure</h4>
-                    <p className="text-sm">Cryptographically strong random numbers.</p>
+                    <div className="text-2xl mb-2">⚡</div>
+                    <h4 className="font-bold mb-1">Fast Generation</h4>
+                    <p className="text-sm">Create standard .env files for any project in seconds.</p>
                   </div>
                   <div className="p-4 bg-bg-secondary rounded-2xl border border-border">
-                    <div className="text-2xl mb-2">⚡</div>
-                    <h4 className="font-bold mb-1">Instant</h4>
-                    <p className="text-sm">Generate and copy in one click.</p>
+                    <div className="text-2xl mb-2">✅</div>
+                    <h4 className="font-bold mb-1">Smart Validation</h4>
+                    <p className="text-sm">Catch syntax errors and missing keys automatically.</p>
                   </div>
                 </div>
                 <p>
-                  Customize length, symbols, and complexity. Protect your digital life with passwords that hackers can&apos;t crack.
+                  Securely generate DATABASE_URL, API_KEY, and other common variables. Perfect for keeping your local development and production environments in sync.
                 </p>
               </div>
             </div>

@@ -21,117 +21,140 @@ export default function SearchBar() {
       title: 'JSON Formatter', 
       href: '/json-formatter', 
       icon: '📋',
-      keywords: ['json', 'format', 'validate', 'beautify', 'pretty print']
+      keywords: ['json', 'format', 'validate', 'beautify', 'pretty print', 'lint', 'parse']
     },
     { 
       title: 'Image Compressor', 
       href: '/image-compressor', 
       icon: '🗜️',
-      keywords: ['image', 'compress', 'reduce', 'optimize', 'size']
+      keywords: ['image', 'compress', 'reduce', 'optimize', 'size', 'minify', 'photo']
     },
     { 
       title: 'Base64 Converter', 
       href: '/base64-converter', 
       icon: '🔤',
-      keywords: ['base64', 'encode', 'decode', 'convert']
+      keywords: ['base64', 'encode', 'decode', 'convert', 'string', 'binary']
     },
     { 
       title: 'Code Formatter', 
       href: '/code-formatter', 
       icon: '⚡',
-      keywords: ['code', 'format', 'minify', 'beautify', 'html', 'css', 'javascript']
+      keywords: ['code', 'format', 'minify', 'beautify', 'html', 'css', 'javascript', 'prettier']
     },
     { 
       title: 'Timestamp Converter', 
       href: '/timestamp-converter', 
       icon: '⏰',
-      keywords: ['timestamp', 'unix', 'time', 'date', 'convert']
+      keywords: ['timestamp', 'unix', 'time', 'date', 'convert', 'epoch', 'seconds']
     },
     { 
       title: 'Hash Generator', 
       href: '/hash-generator', 
       icon: '🔐',
-      keywords: ['hash', 'md5', 'sha256', 'sha512', 'generate']
+      keywords: ['hash', 'md5', 'sha256', 'sha512', 'generate', 'checksum', 'secure']
     },
     { 
       title: 'Color Picker', 
       href: '/color-picker', 
       icon: '🎨',
-      keywords: ['color', 'picker', 'hex', 'rgb', 'hsl', 'convert']
+      keywords: ['color', 'picker', 'hex', 'rgb', 'hsl', 'convert', 'palette', 'design']
     },
     { 
       title: 'UUID Generator', 
       href: '/uuid-generator', 
       icon: '🆔',
-      keywords: ['uuid', 'guid', 'generate', 'unique', 'id']
+      keywords: ['uuid', 'guid', 'generate', 'unique', 'id', 'random', 'identifier']
     },
     { 
       title: 'URL Encoder', 
       href: '/url-encoder', 
       icon: '🔗',
-      keywords: ['url', 'encode', 'decode', 'escape']
+      keywords: ['url', 'encode', 'decode', 'escape', 'uri', 'percent']
     },
     { 
       title: 'Password Generator', 
       href: '/password-generator', 
       icon: '🔑',
-      keywords: ['password', 'generate', 'secure', 'random']
+      keywords: ['password', 'generate', 'secure', 'random', 'security', 'strong']
     },
     { 
       title: 'Image Converter', 
       href: '/image-converter', 
       icon: '🖼️',
-      keywords: ['image', 'convert', 'png', 'jpg', 'webp', 'format']
+      keywords: ['image', 'convert', 'png', 'jpg', 'webp', 'format', 'extension']
     },
-    // New Tools - Phase 2
     { 
       title: 'Regex Tester', 
       href: '/regex-tester', 
       icon: '🔤',
-      keywords: ['regex', 'regular expression', 'pattern', 'match', 'test']
+      keywords: ['regex', 'regular expression', 'pattern', 'match', 'test', 'find', 'validate']
     },
     { 
       title: 'JWT Decoder', 
       href: '/jwt-decoder', 
       icon: '🔓',
-      keywords: ['jwt', 'token', 'decode', 'json web token', 'auth']
+      keywords: ['jwt', 'token', 'decode', 'json web token', 'auth', 'inspect', 'payload']
     },
     { 
       title: 'Text Diff Checker', 
       href: '/text-diff', 
       icon: '🔍',
-      keywords: ['diff', 'compare', 'text', 'difference', 'merge']
+      keywords: ['diff', 'compare', 'text', 'difference', 'merge', 'side-by-side', 'changes']
     },
     { 
       title: 'Image Resizer', 
       href: '/image-resizer', 
       icon: '📐',
-      keywords: ['image', 'resize', 'crop', 'dimensions', 'scale']
+      keywords: ['image', 'resize', 'crop', 'dimensions', 'scale', 'width', 'height', 'photo']
     },
     { 
       title: 'QR Code Generator', 
       href: '/qr-generator', 
       icon: '📱',
-      keywords: ['qr', 'qr code', 'generate', 'barcode', 'scan']
+      keywords: ['qr', 'qr code', 'generate', 'barcode', 'scan', 'link', 'mobile']
     },
     // New Tools - Phase 3
     { 
       title: 'API Tester', 
       href: '/api-tester', 
       icon: '🧪',
-      keywords: ['api', 'rest', 'postman', 'http', 'request', 'test']
+      keywords: ['api', 'rest', 'postman', 'http', 'request', 'test', 'endpoint', 'json']
     },
     { 
       title: 'JSON ⇄ CSV Converter', 
       href: '/json-csv-converter', 
       icon: '🔄',
-      keywords: ['json', 'csv', 'convert', 'excel', 'data', 'spreadsheet']
+      keywords: ['json', 'csv', 'convert', 'excel', 'data', 'spreadsheet', 'table']
     },
     { 
       title: 'JWT Encoder', 
       href: '/jwt-encoder', 
       icon: '🔐',
-      keywords: ['jwt', 'encode', 'sign', 'token', 'create', 'auth']
+      keywords: ['jwt', 'encode', 'sign', 'token', 'create', 'auth', 'json web token']
+    },
+    { 
+      title: 'Dockerfile Generator', 
+      href: '/dockerfile-generator', 
+      icon: '🐳',
+      keywords: ['docker', 'dockerfile', 'container', 'devops', 'generate', 'deployment', 'linux']
+    },
+    { 
+      title: '.env Generator & Validator', 
+      href: '/env-generator-validator', 
+      icon: '🛠️',
+      keywords: ['env', 'dotenv', 'validate', 'environment', 'variables', 'config', 'secret']
+    },
+    { 
+      title: '.gitignore Generator', 
+      href: '/gitignore-generator', 
+      icon: '📄',
+      keywords: ['gitignore', 'git', 'ignore', 'config', 'devops', 'generate', 'version control']
+    },
+    { 
+      title: 'SLA Uptime Calculator', 
+      href: '/sla-uptime-calculator', 
+      icon: '⏱️',
+      keywords: ['sla', 'uptime', 'downtime', 'calculator', 'devops', '99.9', '99.99', 'availability', 'nines']
     },
   ]
 

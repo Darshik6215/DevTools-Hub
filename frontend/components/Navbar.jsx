@@ -90,7 +90,12 @@ export default function Navbar() {
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-border bg-bg-primary reveal">
-            <div className="flex flex-col space-y-2 px-4">
+            <div className="flex flex-col space-y-4 px-4">
+              {/* Mobile Search */}
+              <div className="pb-4 border-b border-border">
+                <SearchBar />
+              </div>
+
               {[
                 { href: '/tools', label: 'All Tools', icon: '🛠️' },
                 { href: '/blog', label: 'Blog & Articles', icon: '📚' },

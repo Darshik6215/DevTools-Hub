@@ -148,7 +148,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-border/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-text-secondary text-sm font-medium order-2 md:order-1">
-              &copy; {currentYear} <span className="text-primary font-bold">DevTools Hub</span>. Crafted with ❤️ for Developers.
+              &copy; {currentYear} <span className="text-primary font-bold">DevTools Hub</span> (devtoolskit.pro). Crafted with ❤️ for Developers.
             </div>
           </div>
         </div>

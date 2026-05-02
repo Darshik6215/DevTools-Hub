@@ -6,7 +6,7 @@ Allow: /
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://devtools-hub.com/sitemap.xml
+Sitemap: https://devtoolskit.pro/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1

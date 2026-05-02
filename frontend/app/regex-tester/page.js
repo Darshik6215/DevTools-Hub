@@ -107,9 +107,20 @@ export default function RegexTesterPage() {
       <div className="bg-card-bg rounded-xl shadow-lg p-6 md:p-8 border border-border">
         {/* Pattern Input */}
         <div className="mb-6">
-          <label className="block text-text-primary font-semibold mb-2">
-            Regular Expression Pattern
-          </label>
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-text-primary font-semibold">
+              Regular Expression Pattern
+            </label>
+            <button
+              onClick={() => {
+                setPattern('\\d{3}-\\d{3}-\\d{4}')
+                setTestString('Call me at 555-123-4567 or 555-987-6543')
+              }}
+              className="text-sm text-primary hover:underline font-medium"
+            >
+              Load Sample
+            </button>
+          </div>
           <div className="flex items-center gap-2 bg-bg-secondary rounded-lg p-3 border border-border">
             <span className="text-text-secondary font-mono">/</span>
             <input

@@ -107,7 +107,19 @@ export default function JWTEncoderPage() {
       <div className="bg-card-bg rounded-xl shadow-lg p-6 md:p-8 border border-border">
         {/* Algorithm Selection */}
         <div className="mb-6">
-          <label className="block text-text-primary font-semibold mb-2">Algorithm</label>
+          <div className="flex justify-between items-center mb-2">
+            <label className="block text-text-primary font-semibold">Algorithm</label>
+            <button
+              onClick={() => {
+                setAlgorithm('HS256')
+                setPayload('{\n  "sub": "1234567890",\n  "name": "Jane Smith",\n  "admin": true,\n  "iat": 1516239022\n}')
+                setSecret('secret-key-123')
+              }}
+              className="text-sm text-primary hover:underline font-medium"
+            >
+              Load Sample
+            </button>
+          </div>
           <select
             value={algorithm}
             onChange={(e) => setAlgorithm(e.target.value)}

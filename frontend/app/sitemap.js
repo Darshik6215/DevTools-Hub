@@ -136,6 +136,31 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    // DevOps Tools
+    {
+      url: `${baseUrl}/dockerfile-generator`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/env-generator-validator`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/gitignore-generator`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/sla-uptime-calculator`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     // Blog
     {
       url: `${baseUrl}/blog`,

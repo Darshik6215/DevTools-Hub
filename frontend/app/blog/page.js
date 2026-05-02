@@ -169,6 +169,42 @@ const blogPosts = [
     category: 'Security',
     readTime: '7 min read',
     image: '🔐'
+  },
+  {
+    title: 'Complete Guide to Dockerfile Generator - Containerize Your Apps',
+    slug: 'dockerfile-generator-guide',
+    excerpt: 'Learn how to generate optimized Dockerfiles for Node.js, Python, PHP, and Java. Complete guide covering Docker basics, multi-stage builds, and best practices.',
+    date: '2024-05-02',
+    category: 'API & Testing',
+    readTime: '10 min read',
+    image: '🐳'
+  },
+  {
+    title: 'Mastering .env Files - Generator & Validator Guide',
+    slug: 'env-generator-guide',
+    excerpt: 'Learn why .env files are crucial for application security and how to use our generator and validator to avoid common configuration errors.',
+    date: '2024-05-03',
+    category: 'Security',
+    readTime: '8 min read',
+    image: '🛠️'
+  },
+  {
+    title: 'Complete Guide to .gitignore Generator - Best Practices for Git',
+    slug: 'gitignore-generator-guide',
+    excerpt: 'Learn how to use our .gitignore generator to keep your repositories clean and secure. Complete guide on Git ignore rules, patterns, and best practices.',
+    date: '2024-05-04',
+    category: 'Development',
+    readTime: '10 min read',
+    image: '📄'
+  },
+  {
+    title: 'SLA Uptime Calculator Guide — Understanding 99.9% vs 99.99% Uptime',
+    slug: 'sla-uptime-guide',
+    excerpt: 'Learn what SLA uptime percentages mean in practice. Understand the difference between 99.9% and 99.99% uptime, how to calculate downtime, and why it matters.',
+    date: '2024-05-05',
+    category: 'Development',
+    readTime: '9 min read',
+    image: '⏱️'
   }
 ]
 

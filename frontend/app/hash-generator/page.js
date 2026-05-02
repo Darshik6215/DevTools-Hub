@@ -93,9 +93,17 @@ export default function HashGenerator() {
 
         <div className="bg-card-bg rounded-xl shadow-lg p-6 md:p-8 border border-border">
           <div className="mb-6">
-            <label className="block text-lg font-semibold text-text-primary mb-3">
-              Input Text
-            </label>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-lg font-semibold text-text-primary">
+                Input Text
+              </label>
+              <button
+                onClick={() => setInput('DevTools Hub is the best platform for developers!')}
+                className="text-sm text-primary hover:underline font-medium"
+              >
+                Load Sample
+              </button>
+            </div>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}

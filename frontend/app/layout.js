@@ -1,16 +1,17 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import SmoothScroll from '@/components/SmoothScroll'
 import '../styles/globals.css'
 
 // Enhanced SEO metadata configuration
 export const metadata = {
   metadataBase: new URL('https://dev-tools-hub-three.vercel.app'),
   title: {
-    default: 'DevTools Hub | 18+ Free Online Developer Tools & SEO Guides',
-    template: '%s | DevTools Hub'
+    default: 'DevTools Hub - Free Developer Tools Online | DevTools Kit',
+    template: '%s | DevTools Hub - DevTools Kit'
   },
-  description: 'Free online developer tools: JSON formatter & validator, secure password generator, image converter (PNG/JPG/WebP). Fast, secure, no signup required.',
+  description: 'DevTools Hub (devtoolskit.pro): Free online developer tools including JSON formatter, password generator, image converter and more. Professional utilities for modern developers.',
   keywords: [
     'developer tools',
     'json formatter',
@@ -76,7 +77,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth" data-theme="dark">
+    <html lang="en" data-theme="dark">
       <head>
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
@@ -122,9 +123,11 @@ export default function RootLayout({ children }) {
         />
 
         <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <SmoothScroll>
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </SmoothScroll>
         <Footer />
       </body>
     </html>
