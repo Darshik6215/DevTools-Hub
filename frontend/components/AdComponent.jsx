@@ -15,12 +15,14 @@ export default function AdComponent({ size = 'banner', className = '' }) {
     // Only push ads once per component instance
     if (!isAdPushed.current && adRef.current) {
       try {
-        if (typeof window !== 'undefined' && window.adsbygoogle) {
+        // Wait for container to have actual width before pushing
+        const width = adRef.current.offsetWidth
+        if (typeof window !== 'undefined' && window.adsbygoogle && width > 0) {
           (window.adsbygoogle = window.adsbygoogle || []).push({})
           isAdPushed.current = true
         }
       } catch (err) {
-        console.error('AdSense error:', err)
+        // Suppress TagError - happens when ad slot width is 0 (not yet approved)
       }
     }
   }, [])
@@ -81,7 +83,7 @@ export default function AdComponent({ size = 'banner', className = '' }) {
         <ins
           ref={adRef}
           className="adsbygoogle"
-          style={{ display: 'block' }}
+          style={{ display: 'block', width: '100%', minHeight: config.height + 'px' }}
           data-ad-client="ca-pub-8753660169522921"
           data-ad-slot={config.slot}
           data-ad-format={config.format}

@@ -92,15 +92,9 @@ export default function RootLayout({ children }) {
 
         {/* Force Dark Theme */}
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                  localStorage.setItem('theme', 'dark');
-                } catch (e) {}
-              })();
-            `,
+            __html: `(function(){try{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark');}catch(e){}})();`,
           }}
         />
       </head>
