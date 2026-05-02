@@ -81,6 +81,15 @@ export default function RootLayout({ children }) {
       <head>
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
+
+        {/* Google AdSense — plain <script> tag required; Next.js <Script> adds
+            data-nscript which AdSense rejects. This loads before body hydration. */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8753660169522921"
+          crossOrigin="anonymous"
+        />
+
         {/* Force Dark Theme */}
         <script
           dangerouslySetInnerHTML={{
@@ -96,13 +105,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {/* Google AdSense Script */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8753660169522921"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
 
         {/* Google Analytics */}
         <Script
