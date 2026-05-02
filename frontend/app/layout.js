@@ -1,9 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Script from 'next/script'
 import SmoothScroll from '@/components/SmoothScroll'
 import '../styles/globals.css'
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 // Enhanced SEO metadata configuration
 export const metadata = {
@@ -80,6 +78,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark">
       <head>
+        {/* Google Analytics - Plain Script in Head */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT6EG3L607"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-CT6EG3L607');
+            `,
+          }}
+        />
+
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-8753660169522921" />
 
@@ -100,10 +111,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-
-        {/* Google Analytics */}
-        <GoogleAnalytics gaId="G-CT6EG3L607" />
-
         <Navbar />
         <SmoothScroll>
           <main className="min-h-screen">
