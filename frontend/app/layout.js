@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import Script from 'next/script'
 import SmoothScroll from '@/components/SmoothScroll'
 import '../styles/globals.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 // Enhanced SEO metadata configuration
 export const metadata = {
@@ -101,22 +102,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
 
         {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-CT6EG3L607`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CT6EG3L607');
-            `,
-          }}
-        />
+        <GoogleAnalytics gaId="G-CT6EG3L607" />
 
         <Navbar />
         <SmoothScroll>
