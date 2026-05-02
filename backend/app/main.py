@@ -26,7 +26,7 @@ app = FastAPI(
     redoc_url="/redoc",
     contact={
         "name": "DevTools Hub",
-        "url": "https://dev-tools-hub-three.vercel.app/contact",
+        "url": "https://devtoolskit.co.in/contact",
         "email": "support@devtools-hub.com",
     },
     license_info={
@@ -40,7 +40,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "https://dev-tools-hub-three.vercel.app",
+        "https://devtoolskit.co.in",
         "https://devtools-hub-62u1.onrender.com"
     ],
     allow_credentials=True,

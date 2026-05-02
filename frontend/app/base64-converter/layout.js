@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Base64 Encoder & Decoder - Convert Text & Files',
     description: 'Encode and decode Base64 strings instantly. Free online Base64 conversion tool.',
-    url: 'https://dev-tools-hub-three.vercel.app/base64-converter',
+    url: 'https://devtoolskit.co.in/base64-converter',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/base64-converter',
+    canonical: 'https://devtoolskit.co.in/base64-converter',
   },
 }
 

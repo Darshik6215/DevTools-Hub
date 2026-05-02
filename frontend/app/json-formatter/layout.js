@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: 'Free JSON Formatter & Validator - DevTools Hub',
     description: 'Format and validate JSON data instantly. Free online tool with error detection.',
-    url: 'https://dev-tools-hub-three.vercel.app/json-formatter',
+    url: 'https://devtoolskit.co.in/json-formatter',
     type: 'website',
   },
   twitter: {
@@ -15,7 +15,7 @@ export const metadata = {
     description: 'Format and validate JSON data instantly online',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/json-formatter',
+    canonical: 'https://devtoolskit.co.in/json-formatter',
   },
 }
 

@@ -3,7 +3,7 @@
  * Generates XML sitemap for search engines
  */
 export default function sitemap() {
-  const baseUrl = 'https://dev-tools-hub-three.vercel.app'
+  const baseUrl = 'https://devtoolskit.co.in'
   const currentDate = new Date()
 
   return [

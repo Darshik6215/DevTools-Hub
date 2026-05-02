@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Image Compressor - Reduce Image Size Online',
     description: 'Compress images by up to 80% without quality loss. Free online tool for JPG, PNG, WebP compression.',
-    url: 'https://dev-tools-hub-three.vercel.app/image-compressor',
+    url: 'https://devtoolskit.co.in/image-compressor',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/image-compressor',
+    canonical: 'https://devtoolskit.co.in/image-compressor',
   },
 }
 

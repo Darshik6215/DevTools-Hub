@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free URL Encoder & Decoder - Encode URLs Instantly',
     description: 'Encode and decode URLs online. Free URL encoding tool.',
-    url: 'https://dev-tools-hub-three.vercel.app/url-encoder',
+    url: 'https://devtoolskit.co.in/url-encoder',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/url-encoder',
+    canonical: 'https://devtoolskit.co.in/url-encoder',
   },
 }
 

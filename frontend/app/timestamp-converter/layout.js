@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Unix Timestamp Converter - Convert Time Instantly',
     description: 'Convert Unix timestamps to readable dates and vice versa. Free online tool.',
-    url: 'https://dev-tools-hub-three.vercel.app/timestamp-converter',
+    url: 'https://devtoolskit.co.in/timestamp-converter',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/timestamp-converter',
+    canonical: 'https://devtoolskit.co.in/timestamp-converter',
   },
 }
 

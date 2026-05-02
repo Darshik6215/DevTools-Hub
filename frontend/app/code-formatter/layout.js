@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Code Minifier & Beautifier - HTML CSS JavaScript',
     description: 'Minify and beautify your code instantly. Free online tool for HTML, CSS, and JavaScript.',
-    url: 'https://dev-tools-hub-three.vercel.app/code-formatter',
+    url: 'https://devtoolskit.co.in/code-formatter',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/code-formatter',
+    canonical: 'https://devtoolskit.co.in/code-formatter',
   },
 }
 

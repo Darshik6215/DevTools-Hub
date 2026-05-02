@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Hash Generator - MD5, SHA256, SHA512',
     description: 'Generate secure cryptographic hashes instantly. Free online tool.',
-    url: 'https://dev-tools-hub-three.vercel.app/hash-generator',
+    url: 'https://devtoolskit.co.in/hash-generator',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/hash-generator',
+    canonical: 'https://devtoolskit.co.in/hash-generator',
   },
 }
 

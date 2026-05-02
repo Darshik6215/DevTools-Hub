@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free Color Picker & Converter - HEX RGB HSL',
     description: 'Pick and convert colors instantly. Free online tool for designers.',
-    url: 'https://dev-tools-hub-three.vercel.app/color-picker',
+    url: 'https://devtoolskit.co.in/color-picker',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/color-picker',
+    canonical: 'https://devtoolskit.co.in/color-picker',
   },
 }
 

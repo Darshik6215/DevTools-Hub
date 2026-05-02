@@ -5,10 +5,10 @@ export const metadata = {
   openGraph: {
     title: 'Free UUID Generator - Create Unique Identifiers',
     description: 'Generate UUIDs instantly. Free online UUID v4 generator.',
-    url: 'https://dev-tools-hub-three.vercel.app/uuid-generator',
+    url: 'https://devtoolskit.co.in/uuid-generator',
   },
   alternates: {
-    canonical: 'https://dev-tools-hub-three.vercel.app/uuid-generator',
+    canonical: 'https://devtoolskit.co.in/uuid-generator',
   },
 }
 
