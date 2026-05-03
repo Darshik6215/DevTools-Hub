@@ -47,6 +47,7 @@ export default function Footer() {
     ],
     legal: [
       { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'About Us', href: '/about' },
       { name: 'Terms & Conditions', href: '/terms' },
       { name: 'Contact Us', href: '/contact' },
     ]

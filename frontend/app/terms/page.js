@@ -14,7 +14,7 @@ export default function TermsAndConditions() {
       
       <div className="prose prose-lg max-w-none text-text-secondary reveal reveal-delay-1">
         <p className="mb-6">
-          <strong className="text-text-primary">Last Updated:</strong> January 15, 2024
+          <strong className="text-text-primary">Last Updated:</strong> May 3, 2026
         </p>
 
         <h2 className="text-2xl font-bold mt-8 mb-4 text-text-primary">1. Acceptance of Terms</h2>

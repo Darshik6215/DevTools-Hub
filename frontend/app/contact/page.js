@@ -131,7 +131,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold mb-2 flex items-center gap-2 text-text-primary">
                   <span>📧</span> Email
                 </h3>
-                <p className="text-text-secondary">support@devtoolshub.com</p>
+                <p className="text-text-secondary">support@devtoolskit.co.in</p>
               </div>
 
               <div>
