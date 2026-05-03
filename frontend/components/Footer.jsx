@@ -10,6 +10,17 @@ import { useState, useEffect } from 'react'
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   const [isVisible, setIsVisible] = useState(false)
+  const [email, setEmail] = useState('')
+  const [isSubscribed, setIsSubscribed] = useState(false)
+
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    if (email && email.includes('@')) {
+      setIsSubscribed(true)
+      setEmail('')
+      setTimeout(() => setIsSubscribed(false), 5000)
+    }
+  }
 
   // Show button when page is scrolled down
   useEffect(() => {
@@ -77,16 +88,31 @@ export default function Footer() {
               {/* Newsletter Section */}
               <div className="max-w-sm">
                 <h4 className="font-bold mb-4 text-text-primary uppercase tracking-wider text-sm">Stay Updated</h4>
-                <div className="flex gap-2 p-1.5 bg-bg-secondary border border-border rounded-xl focus-within:border-primary transition-all">
-                  <input 
-                    type="email" 
-                    placeholder="your@email.com" 
-                    className="bg-transparent border-none focus:ring-0 text-sm flex-1 px-3 py-2 text-text-primary"
-                  />
-                  <button className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all transform active:scale-95">
-                    Join
-                  </button>
-                </div>
+                <form onSubmit={handleSubscribe} className="relative">
+                  <div className="flex gap-2 p-1.5 bg-bg-secondary border border-border rounded-xl focus-within:border-primary transition-all">
+                    <input 
+                      type="email" 
+                      placeholder="your@email.com" 
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="bg-transparent border-none focus:ring-0 text-sm flex-1 px-3 py-2 text-text-primary"
+                    />
+                    <button 
+                      type="submit"
+                      className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-bold transition-all transform active:scale-95"
+                    >
+                      Join
+                    </button>
+                  </div>
+
+                  {/* Success Message Popup */}
+                  {isSubscribed && (
+                    <div className="absolute -top-16 left-0 right-0 p-3 bg-green-500 text-white text-xs font-bold rounded-lg shadow-xl animate-bounce-subtle text-center z-20">
+                      🎉 You have joined successfully!
+                    </div>
+                  )}
+                </form>
                 <p className="text-[10px] text-text-secondary mt-2 px-1">
                   * Weekly updates on new tools and developer guides.
                 </p>

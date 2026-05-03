@@ -17,7 +17,16 @@ export default function ContactPage() {
     // Handle form submission (integrate with backend or email service)
     console.log('Form submitted:', formData)
     setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    
+    // Reset form fields
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    })
+    
+    setTimeout(() => setSubmitted(false), 5000)
   }
 
   const handleChange = (e) => {
