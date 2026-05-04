@@ -59,14 +59,6 @@ export default function Home() {
       steps: ['Paste your JSON', 'Click Format', 'Copy result']
     },
     {
-      title: 'API Tester',
-      description: 'Test REST APIs like Postman with custom headers and body',
-      href: '/api-tester',
-      icon: '🧪',
-      features: ['Test APIs', 'Custom Headers', 'View Response'],
-      steps: ['Enter URL', 'Add headers', 'Send request']
-    },
-    {
       title: 'Image Compressor',
       description: 'Compress images by up to 80% without losing quality',
       href: '/image-compressor',
@@ -199,11 +191,11 @@ export default function Home() {
   // Latest blog posts (Updated with new ones)
   const latestPosts = [
     {
-      title: 'API Testing Complete Guide 2024 - Test REST APIs Like a Pro',
-      excerpt: 'Learn API testing from basics to advanced. Complete guide covering REST APIs, HTTP methods, and tools.',
-      slug: 'api-testing-complete-guide',
-      date: 'Jan 20, 2024',
-      image: '🧪'
+      title: 'Complete Guide to Dockerfile Generator - Containerize Your Apps',
+      excerpt: 'Learn how to generate optimized Dockerfiles for Node.js, Python, PHP, and Java. Complete guide covering Docker basics.',
+      slug: 'dockerfile-generator-guide',
+      date: 'May 02, 2024',
+      image: '🐳'
     },
     {
       title: 'JWT Authentication Guide - How JSON Web Tokens Work',
@@ -266,7 +258,7 @@ export default function Home() {
             </h1>
             
             <p className="text-xl md:text-2xl text-text-primary mb-6 font-semibold">
-              JSON Formatter • Password Generator • Image Converter • API Tester
+              JSON Formatter • Password Generator • Image Converter • Dockerfile Generator
             </p>
             
             <p className="text-lg text-text-secondary mb-10 leading-relaxed max-w-3xl mx-auto">

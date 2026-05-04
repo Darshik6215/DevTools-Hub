@@ -115,12 +115,6 @@ export default function SearchBar() {
     },
     // New Tools - Phase 3
     { 
-      title: 'API Tester', 
-      href: '/api-tester', 
-      icon: '🧪',
-      keywords: ['api', 'rest', 'postman', 'http', 'request', 'test', 'endpoint', 'json']
-    },
-    { 
       title: 'JSON ⇄ CSV Converter', 
       href: '/json-csv-converter', 
       icon: '🔄',

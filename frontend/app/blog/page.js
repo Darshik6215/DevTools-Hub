@@ -9,13 +9,13 @@ export const metadata = {
 
 const blogPosts = [
   {
-    title: 'API Testing Complete Guide 2024 - Test REST APIs Like a Pro',
-    slug: 'api-testing-complete-guide',
-    excerpt: 'Learn API testing from basics to advanced. Complete guide covering REST APIs, HTTP methods, testing tools, and best practices for developers.',
-    date: '2024-01-20',
+    title: 'Complete Guide to Dockerfile Generator - Containerize Your Apps',
+    slug: 'dockerfile-generator-guide',
+    excerpt: 'Learn how to generate optimized Dockerfiles for Node.js, Python, PHP, and Java. Complete guide covering Docker basics, multi-stage builds, and best practices.',
+    date: '2024-05-02',
     category: 'API & Testing',
-    readTime: '12 min read',
-    image: '🧪'
+    readTime: '10 min read',
+    image: '🐳'
   },
   {
     title: 'JWT Authentication Guide - How JSON Web Tokens Work',
@@ -169,15 +169,6 @@ const blogPosts = [
     category: 'Security',
     readTime: '7 min read',
     image: '🔐'
-  },
-  {
-    title: 'Complete Guide to Dockerfile Generator - Containerize Your Apps',
-    slug: 'dockerfile-generator-guide',
-    excerpt: 'Learn how to generate optimized Dockerfiles for Node.js, Python, PHP, and Java. Complete guide covering Docker basics, multi-stage builds, and best practices.',
-    date: '2024-05-02',
-    category: 'API & Testing',
-    readTime: '10 min read',
-    image: '🐳'
   },
   {
     title: 'Mastering .env Files - Generator & Validator Guide',

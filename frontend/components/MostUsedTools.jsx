@@ -17,12 +17,12 @@ export default function MostUsedTools() {
       uses: '50K+ uses'
     },
     {
-      title: 'API Tester',
-      description: 'Test REST APIs instantly',
-      href: '/api-tester',
-      icon: '🧪',
+      title: 'Dockerfile Generator',
+      description: 'Generate optimized Dockerfiles',
+      href: '/dockerfile-generator',
+      icon: '🐳',
       badge: 'popular',
-      uses: '35K+ uses'
+      uses: '28K+ uses'
     },
     {
       title: 'Image Compressor',

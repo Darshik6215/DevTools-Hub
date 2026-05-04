@@ -76,13 +76,6 @@ export default function AllToolsPage() {
       icon: '🚀',
       tools: [
         {
-          title: 'API Tester',
-          description: 'Test REST APIs like Postman',
-          href: '/api-tester',
-          icon: '🧪',
-          keywords: ['api', 'rest', 'http', 'request', 'test']
-        },
-        {
           title: 'Dockerfile Generator',
           description: 'Generate optimized Dockerfiles instantly',
           href: '/dockerfile-generator',

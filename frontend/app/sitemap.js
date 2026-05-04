@@ -119,12 +119,6 @@ export default function sitemap() {
     },
     // New Tools - Phase 3
     {
-      url: `${baseUrl}/api-tester`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/json-csv-converter`,
       lastModified: currentDate,
       changeFrequency: 'monthly',

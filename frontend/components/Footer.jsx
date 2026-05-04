@@ -41,7 +41,7 @@ export default function Footer() {
       { name: 'JSON Formatter', href: '/json-formatter' },
       { name: 'Password Generator', href: '/password-generator' },
       { name: 'Image Compressor', href: '/image-compressor' },
-      { name: 'API Tester', href: '/api-tester' },
+      { name: 'Dockerfile Generator', href: '/dockerfile-generator' },
       { name: 'Image Converter', href: '/image-converter' },
     ],
     devTools: [
